@@ -1,4 +1,4 @@
-<Window xmlns="clr-namespace:MGUI.Core.UI.XAML;assembly=MGUI.Core"
+﻿<Window xmlns="clr-namespace:MGUI.Core.UI.XAML;assembly=MGUI.Core"
         xmlns:Converters="clr-namespace:MGUI.Core.UI.Data_Binding.Converters;assembly=MGUI.Core"
         Left="440" Top="20" MinHeight="0" Width="740" Height="800" TitleText="Bindings" Padding="10">
     <Window.Styles>
@@ -26,8 +26,8 @@
             <TextBlock StyleNames="Header1" Text="Data Bindings:" HorizontalAlignment="Center" />
             <Separator/>
             <TextBlock>
-                DataBinding refers to the concept of 'binding' 2 separate pieces of data together to synchronize their values. 
-                MGUI uses its own DataBinding engine which provides a convenient and generalized framework for tightly-coupling data, 
+                DataBinding refers to the concept of 'binding' 2 separate pieces of data together to synchronize their values.
+                MGUI uses its own DataBinding engine which provides a convenient and generalized framework for tightly-coupling data,
                 especially to the user interface.
             </TextBlock>
             <Separator />
@@ -91,21 +91,21 @@
 public class MyObject
 {
     public object DataContext { get; set; }
-                    
+
     public MyObject()
     {
-        this.DataContext = new MyDataContext();          
+        this.DataContext = new MyDataContext();
     }
 }
-                    
+
 public class MyDataContext
 {
-    public string SomeProperty { get; set; }      
+    public string SomeProperty { get; set; }
 }
                     </TextBlock>
                     <Spacer Height="5" />
                     <TextBlock>
-                        When the binding engine attempts to find the source data, it starts by looking for the value of a property named 
+                        When the binding engine attempts to find the source data, it starts by looking for the value of a property named
                         [c=LightBlue][s=Blue]DataContext[/s][/c] on the [c=Turquoise]TargetObject[/c]. Then it attempts to find a property at the given
                         [c=Turquoise]SourcePath[/c]. For example, if [c=Turquoise]SourcePath[/c]=[c=LightBlue][s=Blue]Foo.Bar[/s][/c], the source
                         data is retrieved from [c=LightBlue][s=Blue]TargetObject.DataContext.Foo.Bar[/s][/c].
@@ -156,7 +156,7 @@ public class MyDataContext
     [c=DodgerBlue]public event[/c] [c=Turquoise]PropertyChangedEventHandler[/c] PropertyChanged;
     [c=DodgerBlue]public virtual void[/c] NotifyPropertyChanged([c=DodgerBlue]string[/c] PropertyName)
         => PropertyChanged?.Invoke([c=DodgerBlue]this[/c], [c=DodgerBlue]new[/c] [c=Turquoise]PropertyChangedEventArgs[/c](PropertyName));
-    
+
     [c=DodgerBlue]private string[/c] _SampleProperty;
     [c=DodgerBlue]public string[/c] SampleProperty
     {
@@ -227,7 +227,7 @@ public class MyDataContext
                     </TextBlock>
                     <Spacer Height="5" />
                     <TextBlock>
-                        Set [c=Turquoise]ResourceName[/c] to make the [c=Turquoise]SourceObject[/c] be computed relative to a particular StaticResource 
+                        Set [c=Turquoise]ResourceName[/c] to make the [c=Turquoise]SourceObject[/c] be computed relative to a particular StaticResource
                         that exists in [c=Turquoise]MGResources.StaticResources[/c] dictionary.
                         (The [c=Turquoise]MGResources[/c] instance is obtained via [c=Turquoise]MGElement.GetDesktop().Resources[/c])
                     </TextBlock>
@@ -248,12 +248,12 @@ public class MyDataContext
                         to [c=LightBlue][s=Blue]int[/s][/c].
                     </TextBlock>
                     <TextBlock>
-                        If you explicitly specify a [c=Turquoise]Converter[/c] (a class that implements [c=Turquoise]IValueConverter[/c]) when creating the binding, 
+                        If you explicitly specify a [c=Turquoise]Converter[/c] (a class that implements [c=Turquoise]IValueConverter[/c]) when creating the binding,
                         that converter's [c=Turquoise]Convert[/c] and [c=Turquoise]ConvertBack[/c] functions will be called on the target value before
                         any default conversion is applied. [c=Turquoise]Convert[/c] is used when attempting to store the source property's value in the
                         target property. [c=Turquoise]ConvertBack[/c] is used when attempting to store the target property's value in the source property.
                     </TextBlock>
-                    
+
                     <StackPanel Orientation="Vertical" Spacing="3" Background="White * 0.1" Padding="4">
                         <TextBlock>
                             To specify a converter in XAML, you must map the namespace (that the converter is defined in) to a prefix using: xmlns:SomePrefix="{Path to namespace}"
@@ -344,8 +344,8 @@ The Converter is specified using:
                         Text="Correct (Property): [c=DodgerBlue]public bool[/c] SampleVariable { [c=DodgerBlue]get[/c]; [c=DodgerBlue]set;[/c] }\n   Incorrect (Field): [c=DodgerBlue]public bool[/c] SampleVariable;" />
                             <Spacer Height="5" />
                             <TextBlock>
-                                The getter and setter of the bound property should typically be [c=DodgerBlue]public[/c]. 
-                                If you are binding with a [c=Turquoise]Mode[/c] that doesn't need to set the bound property's value, 
+                                The getter and setter of the bound property should typically be [c=DodgerBlue]public[/c].
+                                If you are binding with a [c=Turquoise]Mode[/c] that doesn't need to set the bound property's value,
                                 then it's fine for the property's setter to be [c=DodgerBlue]private[/c]. For example, if
                                 you're using a [c=LightBlue][s=Blue]OneWay[/s][/c] binding, then the source property's
                                 setter can be private because the binding engine would only need to set the target property.
@@ -379,9 +379,9 @@ The Converter is specified using:
                                 you can call [c=Turquoise]MGElement.RemoveDataBindings[/c]([c=DodgerBlue]bool[/c] IncludeChildren) when you're done using the element.
                             </TextBlock>
                             <TextBlock>
-                                In some cases with auto-generated Content, MGUI will automatically dispose of unneeded bindings for you. 
-                                For example, [c=Turquoise]ComboBoxes[/c] have a [c=Turquoise]SelectedItemTemplate[/c] that is used to 
-                                generate the Content for the selected item. When the selected item changes, the Content of the old selected item 
+                                In some cases with auto-generated Content, MGUI will automatically dispose of unneeded bindings for you.
+                                For example, [c=Turquoise]ComboBoxes[/c] have a [c=Turquoise]SelectedItemTemplate[/c] that is used to
+                                generate the Content for the selected item. When the selected item changes, the Content of the old selected item
                                 is no longer needed, so MGUI automatically disposes of bindings attached to that old Content.
                             </TextBlock>
                         </StackPanel>
@@ -393,7 +393,7 @@ The Converter is specified using:
                         </Expander.Header>
                         <StackPanel Orientation="Vertical" Spacing="5" Padding="4">
                             <TextBlock>The source property of a [c=Turquoise]DataBinding[/c] is computed in 3 steps by the DataBinding engine:</TextBlock>
-                                <TextBlock xml:space="preserve">1. Use the [c=Turquoise]SourceObjectResolver[/c] to determine where to start
+                            <TextBlock xml:space="preserve">1. Use the [c=Turquoise]SourceObjectResolver[/c] to determine where to start
     If [c=Turquoise]SourceObjectResolver[/c]=[c=LightBlue][s=Blue]Self[/s][/c]:
         Start from the [c=Turquoise]TargetObject[/c]
     If [c=Turquoise]SourceObjectResolver[/c]=[c=LightBlue][s=Blue]ElementName[/s][/c]
@@ -407,7 +407,7 @@ The Converter is specified using:
 2. Use the [c=Turquoise]DataContextResolver[/c] to determine if the binding should read directly from the 1st step's result ([c=Turquoise]DataContextResolver[/c]=[c=LightBlue][s=Blue]Self[/s][/c]), or if it should additionally read the value of a [c=Turquoise]DataContext[/c] property ([c=Turquoise]DataContextResolver[/c]=[c=LightBlue][s=Blue]DataContext[/s][/c]).
 3. Traverse the binding's [c=Turquoise]SourcePath[/c] to find the desired property.</TextBlock>
                             <TextBlock>
-                                The 1st step is only resolved once when the binding is initialized. Consider the following scenario: 
+                                The 1st step is only resolved once when the binding is initialized. Consider the following scenario:
                                 A [c=Turquoise]Window[/c] contains a [c=Turquoise]CheckBox[/c] named [b]Item1[/b].
                                 A [c=Turquoise]DataBinding[/c] is created, using [c=Turquoise]ElementName[/c]=[c=LightBlue][s=Blue]Item1[/s][/c].
                                 The [c=Turquoise]CheckBox[/c] is renamed to [b]Item2[/b].
@@ -433,7 +433,7 @@ The Converter is specified using:
                 <StackPanel Orientation="Vertical" Spacing="8" Padding="4">
                     <StackPanel Orientation="Vertical" Spacing="2" Padding="4" Background="White * 0.1">
                         <TextBlock>
-                            This example places a [c=Turquoise]TextBlock[/c] to the right of a [c=Turquoise]Slider[/c]. 
+                            This example places a [c=Turquoise]TextBlock[/c] to the right of a [c=Turquoise]Slider[/c].
                             The [c=Turquoise]TextBlock[/c] displays the current [c=Turquoise]Value[/c] of the [c=Turquoise]Slider[/c].
                         </TextBlock>
                         <Separator/>
@@ -447,7 +447,7 @@ The Converter is specified using:
 
                     <StackPanel Orientation="Vertical" Spacing="2" Padding="4" Background="White * 0.1">
                         <TextBlock>
-                            This example contains multiple [c=Turquoise]RadioButtons[/c]. Each one has additional text below it, 
+                            This example contains multiple [c=Turquoise]RadioButtons[/c]. Each one has additional text below it,
                             but the additional text is only visible when the [c=Turquoise]RadioButton[/c] above it is checked.
                             This is achieved using an ElementName binding to the [c=Turquoise]RadioButton.IsChecked[/c] property, and
                             using a Converter to convert from [c=LightBlue][s=Blue]bool[/s][/c] to [c=LightBlue][s=Blue]Visibility[/s][/c].
@@ -459,8 +459,8 @@ The Converter is specified using:
                         <TextBlock Margin="20,0,0,0" FontSize="8"
                                    Visibility="{MGBinding ElementName=RadioButtonC#, Path=IsChecked, Mode=OneWay, Converter={Converters:BoolToVisibilityConverter TrueVisibility=Visible, FalseVisibility=Collapsed}}">
                             <TextBlock.Text>
-                                C# is a general-purpose high-level programming language supporting multiple paradigms. 
-                                C# encompasses static typing, strong typing, lexically scoped, imperative, declarative, functional, generic, 
+                                C# is a general-purpose high-level programming language supporting multiple paradigms.
+                                C# encompasses static typing, strong typing, lexically scoped, imperative, declarative, functional, generic,
                                 object-oriented (class-based), and component-oriented programming disciplines.
                             </TextBlock.Text>
                         </TextBlock>
@@ -469,7 +469,7 @@ The Converter is specified using:
                                    Visibility="{MGBinding ElementName=RadioButtonJavaScript, Path=IsChecked, Mode=OneWay, Converter={Converters:BoolToVisibilityConverter TrueVisibility=Visible, FalseVisibility=Collapsed}}">
                             <TextBlock.Text>
                                 JavaScript is a high-level, often just-in-time compiled language that conforms to the ECMAScript standard.
-                                It has dynamic typing, prototype-based object-orientation, and first-class functions. 
+                                It has dynamic typing, prototype-based object-orientation, and first-class functions.
                                 It is multi-paradigm, supporting event-driven, functional, and imperative programming styles.
                             </TextBlock.Text>
                         </TextBlock>
@@ -478,7 +478,7 @@ The Converter is specified using:
                                    Visibility="{MGBinding ElementName=RadioButtonBrainfuck, Path=IsChecked, Mode=OneWay, Converter={Converters:BoolToVisibilityConverter TrueVisibility=Visible, FalseVisibility=Collapsed}}">
                             <TextBlock.Text>
                                 Brainfuck is an esoteric programming language notable for its extreme minimalism.
-                                The language consists of only eight simple commands, a data pointer and an instruction pointer. 
+                                The language consists of only eight simple commands, a data pointer and an instruction pointer.
                                 While it is fully Turing complete, it is not intended for practical use, but to challenge and amuse programmers.
                             </TextBlock.Text>
                         </TextBlock>
