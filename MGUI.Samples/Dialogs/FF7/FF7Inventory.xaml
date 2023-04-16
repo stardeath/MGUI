@@ -42,7 +42,7 @@
             <DockPanel>
                 <Border StyleNames="PanelBorder" Dock="Left">
                     <!-- List of each party member -->
-                    <ListBox Name="PartyList" ItemType="{x:Type local:PartyMember}" IsTitleVisible="False" Background="Transparent" 
+                    <ListBox Name="PartyList" ItemType="{x:Type local:PartyMember}" IsTitleVisible="False" Background="Transparent"
                              Margin="5" AlternatingRowBackgrounds="{x:Null}" ItemsPanelBorderThickness="0" SelectionMode="None">
                         <ListBox.ItemContainerStyle>
                             <Border BorderThickness="0" />
@@ -83,7 +83,7 @@
                                                 <!-- Tip: If you specify 4 colors, delimited by a '|', it will create an MGGradientBrush using those colors as the 4 corners of the gradient -->
                                                 <ProgressBar Dock="Bottom" Height="4" BorderThickness="0,0,0,1" BorderBrush="Black"
                                                          Minimum="0" Maximum="{MGBinding Path=MaxHP, Mode=OneWay}" Value="{MGBinding Path=CurrentHP, Mode=OneWay}"
-                                                         CompletedBrush="rgb(56,114,217)|rgb(155,178,220)|rgb(155,178,220)|rgb(56,114,217)" 
+                                                         CompletedBrush="rgb(56,114,217)|rgb(155,178,220)|rgb(155,178,220)|rgb(56,114,217)"
                                                          IncompleteBrush="rgb(60,0,0)" />
                                                 <StackPanel Orientation="Horizontal">
                                                     <TextBlock Foreground="White" IsBold="True" FontSize="12" Text="{MGBinding Path=CurrentHP, Mode=OneWay}" />
@@ -99,7 +99,7 @@
                                             <DockPanel VerticalAlignment="Center">
                                                 <ProgressBar Dock="Bottom" Height="4" BorderThickness="0,0,0,1" BorderBrush="Black"
                                                          Minimum="0" Maximum="{MGBinding Path=MaxMP, Mode=OneWay}" Value="{MGBinding Path=CurrentMP, Mode=OneWay}"
-                                                         CompletedBrush="rgb(65,217,152)|rgb(170,205,196)|rgb(170,205,196)|rgb(65,217,152)" 
+                                                         CompletedBrush="rgb(65,217,152)|rgb(170,205,196)|rgb(170,205,196)|rgb(65,217,152)"
                                                          IncompleteBrush="rgb(60,0,0)" />
                                                 <StackPanel Orientation="Horizontal">
                                                     <TextBlock Foreground="White" IsBold="True" FontSize="12" Text="{MGBinding Path=CurrentMP, Mode=OneWay}" />
@@ -117,7 +117,7 @@
 
                 <Border StyleNames="PanelBorder">
                     <!-- List of each item in the inventory -->
-                    <ListBox Name="ItemsList" ItemType="{x:Type local:InventoryItem}" IsTitleVisible="False" Background="Transparent" 
+                    <ListBox Name="ItemsList" ItemType="{x:Type local:InventoryItem}" IsTitleVisible="False" Background="Transparent"
                              Margin="10" AlternatingRowBackgrounds="{x:Null}" ItemsPanelBorderThickness="0">
                         <ListBox.ItemTemplate>
                             <ContentTemplate>
@@ -131,7 +131,7 @@
                                     <!-- Quantity -->
                                     <StackPanel Orientation="Horizontal" Spacing="5" HorizontalAlignment="Right">
                                         <TextBlock VerticalAlignment="Center" Text=":" IsBold="True" />
-                                        <TextBlock VerticalAlignment="Center" Text="{MGBinding Path=Quantity, Mode=OneWay}" 
+                                        <TextBlock VerticalAlignment="Center" Text="{MGBinding Path=Quantity, Mode=OneWay}"
                                                MinWidth="24" TextAlignment="Right" IsBold="True" />
                                     </StackPanel>
                                 </DockPanel>

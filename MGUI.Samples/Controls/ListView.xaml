@@ -26,7 +26,7 @@
             <TextBlock StyleNames="Header1" Text="ListViews:" HorizontalAlignment="Center" />
             <Separator/>
             <TextBlock FontSize="10">
-                [b]ListViews[/b] display a Table of data. You may configure 1 or more columns, and the rows are automatically generated 
+                [b]ListViews[/b] display a Table of data. You may configure 1 or more columns, and the rows are automatically generated
                 based on the [c=Turquoise][i]ListView.ItemsSource[/i][/c] collection.
             </TextBlock>
 
@@ -45,7 +45,7 @@
                 </Expander.Header>
                 <StackPanel Orientation="Vertical" Spacing="4" Margin="20,0,0,0">
                     <TextBlock FontSize="10">
-                        The following [c=Turquoise][i]ListView[/i][/c] contains 3 columns. You can place any content you want in each column, 
+                        The following [c=Turquoise][i]ListView[/i][/c] contains 3 columns. You can place any content you want in each column,
                         though these are just using [c=Turquoise][i]TextBlocks[/i][/c]. This [c=Turquoise][i]ListView[/i][/c] uses dynamic logic
                         to color the names blue for men and pink for women.
                     </TextBlock>

@@ -140,7 +140,7 @@ namespace MGUI.Core.UI
     //		then MGDesktop defines some textures (and drawing offsets) associated with each MouseCursorType, and bool UseHardwareCursor
     //		If usehardwarecursor=false, then after drawing the desktop, get the hovered element, and draw the texture associated with its MGElement.Cursor
     //something really basic for Gamepads? Maybe just a simple way to 'spoof' a mousestate that's hovering a particular MGElement
-    //		like MGElement.NavigateTo, Dictionary<Direction, MGElement> Neighbors. So if you press GamePad Left, it would basically just 
+    //		like MGElement.NavigateTo, Dictionary<Direction, MGElement> Neighbors. So if you press GamePad Left, it would basically just
     //		get the hovered element, and call hovered.Neighbors[Left]?.NavigateTo() which returns a new MouseState to use for next update tick? idk
     //textblock inline formatting:
     //      inlined images should have option for render size AND layout size, so you could, for example, have a zero-width image underneath specific text in the textblock
@@ -491,7 +491,7 @@ namespace MGUI.Core.UI
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private int? _MinWidth;
         /// <summary>The minimum width of this <see cref="MGElement"/>, not including <see cref="HorizontalMargin"/>, or 0 if null.</summary>
-		public int? MinWidth
+        public int? MinWidth
         {
             get => _MinWidth;
             set
@@ -547,7 +547,7 @@ namespace MGUI.Core.UI
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private int? _MaxHeight;
         /// <summary>The maximum height of this <see cref="MGElement"/>, not including <see cref="VerticalMargin"/>, or <see cref="int.MaxValue"/> if null.</summary>
-		public int? MaxHeight
+        public int? MaxHeight
         {
             get => _MaxHeight;
             set
@@ -1262,7 +1262,7 @@ namespace MGUI.Core.UI
 
         /// <summary>The screen space that this <see cref="MGElement"/> will render itself to.<br/>
         /// This value accounts for <see cref="HorizontalAlignment"/> and <see cref="VerticalAlignment"/>.<para/>
-		/// This value does not account for <see cref="Origin"/> and thus might not match the exact screen bounds where this <see cref="MGElement"/> was drawn.<para/>
+        /// This value does not account for <see cref="Origin"/> and thus might not match the exact screen bounds where this <see cref="MGElement"/> was drawn.<para/>
         /// See also: <br/><see cref="AllocatedBounds"/><br/><see cref="RenderBounds"/><br/><see cref="LayoutBounds"/><br/><see cref="StretchedContentBounds"/><br/>
         /// <see cref="AlignedContentBounds"/><br/><see cref="ActualLayoutBounds"/></summary>
         public Rectangle RenderBounds { get; private set; }
@@ -1271,7 +1271,7 @@ namespace MGUI.Core.UI
         private Rectangle _LayoutBounds;
         /// <summary>The screen space that this <see cref="MGElement"/> will render itself to, after accounting for <see cref="Margin"/>.<br/>
         /// The <see cref="BackgroundBrush"/> of this <see cref="MGElement"/> spans these bounds.<para/>
-		/// This value does not account for <see cref="Origin"/> and thus might not match the exact screen bounds where this <see cref="MGElement"/> was drawn.<para/>
+        /// This value does not account for <see cref="Origin"/> and thus might not match the exact screen bounds where this <see cref="MGElement"/> was drawn.<para/>
         /// See also: <br/><see cref="AllocatedBounds"/><br/><see cref="RenderBounds"/><br/><see cref="LayoutBounds"/><br/><see cref="StretchedContentBounds"/><br/>
         /// <see cref="AlignedContentBounds"/><br/><see cref="ActualLayoutBounds"/></summary>
         public Rectangle LayoutBounds
@@ -1291,14 +1291,14 @@ namespace MGUI.Core.UI
 
         /// <summary>The screen space that this <see cref="MGElement"/>'s contents will render to, before accounting for <see cref="HorizontalContentAlignment"/> and <see cref="VerticalContentAlignment"/>.<br/>
         /// This value accounts for <see cref="Margin"/>, <see cref="Padding"/>, and any other properties that affect this <see cref="MGElement"/>'s size (such as BorderThickness of a <see cref="MGBorder"/>).<para/>
-		/// This value does not account for <see cref="Origin"/> and thus might not match the exact screen bounds where this <see cref="MGElement"/> was drawn.<para/>
+        /// This value does not account for <see cref="Origin"/> and thus might not match the exact screen bounds where this <see cref="MGElement"/> was drawn.<para/>
         /// See also: <br/><see cref="AllocatedBounds"/><br/><see cref="RenderBounds"/><br/><see cref="LayoutBounds"/><br/><see cref="StretchedContentBounds"/><br/>
         /// <see cref="AlignedContentBounds"/><br/><see cref="ActualLayoutBounds"/></summary>
         public Rectangle StretchedContentBounds { get; private set; }
 
         /// <summary>The screen space that this <see cref="MGElement"/>'s contents will render to, after accounting for <see cref="HorizontalContentAlignment"/> and <see cref="VerticalContentAlignment"/>.<br/>
         /// This value accounts for <see cref="Margin"/>, <see cref="Padding"/>, and any other properties that affect this <see cref="MGElement"/>'s size (such as BorderThickness of a <see cref="MGBorder"/>).<para/>
-		/// This value does not account for <see cref="Origin"/> and thus might not match the exact screen bounds where this <see cref="MGElement"/> was drawn.<para/>
+        /// This value does not account for <see cref="Origin"/> and thus might not match the exact screen bounds where this <see cref="MGElement"/> was drawn.<para/>
         /// See also: <br/><see cref="AllocatedBounds"/><br/><see cref="RenderBounds"/><br/><see cref="LayoutBounds"/><br/><see cref="StretchedContentBounds"/><br/>
         /// <see cref="AlignedContentBounds"/><br/><see cref="ActualLayoutBounds"/></summary>
         public Rectangle AlignedContentBounds { get; private set; }
@@ -1604,14 +1604,14 @@ namespace MGUI.Core.UI
         }
 
         public event EventHandler<MGElementDrawEventArgs> OnBeginDraw;
-        /// <summary>Invoked after drawing the background, self, and all components, 
+        /// <summary>Invoked after drawing the background, self, and all components,
         /// but while the <see cref="GraphicsDevice.ScissorRectangle"/> is still set to the desired screen-space bounds of this element.<para/>
         /// See also: <see cref="OnEndDraw"/></summary>
         public event EventHandler<MGElementDrawEventArgs> OnEndingDraw;
         /// <summary>Invoked at the very end of <see cref="MGElement.Draw(ElementDrawArgs)"/>.<br/>
         /// Unlike <see cref="OnEndingDraw"/>, this event is invoked AFTER the <see cref="GraphicsDevice.ScissorRectangle"/> has been reverted to its prior value.<para/>
         /// See also: <see cref="OnEndingDraw"/></summary>
-		public event EventHandler<MGElementDrawEventArgs> OnEndDraw;
+        public event EventHandler<MGElementDrawEventArgs> OnEndDraw;
 
         protected void DrawBackground(ElementDrawArgs DA) => DrawBackground(DA, this.LayoutBounds);
 

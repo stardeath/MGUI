@@ -55,7 +55,7 @@
                     </StackPanel>
                 </TabItem>
             </TabControl>
-            
+
             <TabControl2
                 Name="TabControl2" TabStripPlacement="Left">
                 <TabItem2 Header="Tab #4">

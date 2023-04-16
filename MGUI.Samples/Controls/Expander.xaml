@@ -42,10 +42,10 @@
             <Separator/>
 
             <TextBlock>
-                You can customize the expander's graphics by modifying [c=Turquoise][i]Expander.ExpanderToggleButton[/i][/c] 
-                or any of its convenience properties such as 
-                [c=Turquoise][i]ExpanderButtonSize[/i][/c], [c=Turquoise][i]ExpanderButtonBorderBrush[/i][/c], 
-                [c=Turquoise][i]ExpanderButtonBorderThickness[/i][/c], [c=Turquoise][i]ExpanderButtonBackgroundBrush[/i][/c], 
+                You can customize the expander's graphics by modifying [c=Turquoise][i]Expander.ExpanderToggleButton[/i][/c]
+                or any of its convenience properties such as
+                [c=Turquoise][i]ExpanderButtonSize[/i][/c], [c=Turquoise][i]ExpanderButtonBorderBrush[/i][/c],
+                [c=Turquoise][i]ExpanderButtonBorderThickness[/i][/c], [c=Turquoise][i]ExpanderButtonBackgroundBrush[/i][/c],
                 [c=Turquoise][i]ExpanderButtonSize[/i][/c].
             </TextBlock>
             <Expander IsExpanded="False" ExpanderButtonSize="32" Header="Big expander button" HeaderVerticalAlignment="Center" />

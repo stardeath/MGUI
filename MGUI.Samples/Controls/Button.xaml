@@ -1,4 +1,4 @@
-<Window xmlns="clr-namespace:MGUI.Core.UI.XAML;assembly=MGUI.Core"
+﻿<Window xmlns="clr-namespace:MGUI.Core.UI.XAML;assembly=MGUI.Core"
         Left="440" Top="20" MinHeight="0" Width="560" SizeToContent="Height" TitleText="Button" Padding="10">
     <Window.Styles>
         <Style TargetType="TextBlock">
@@ -100,7 +100,7 @@
 
             <DockPanel>
                 <TextBlock Dock="Top">
-                    Set [c=Turquoise]IsRepeatButton[/c] to [c=LightBlue][s=Blue]True[/s][/c] to allow 
+                    Set [c=Turquoise]IsRepeatButton[/c] to [c=LightBlue][s=Blue]True[/s][/c] to allow
                     the button's [c=Turquoise]Command[/c] and/or [c=Turquoise]CommandName[/c] to execute repeatedly while the button is pressed and held (by the Left MouseButton).
                 </TextBlock>
                 <StackPanel Orientation="Vertical" Background="White * 0.1" Padding="4" Margin="0,4,0,0" Spacing="2">
@@ -110,7 +110,7 @@
                         Set [c=Turquoise]InitialRepeatInterval[/c] and [c=Turquoise]RepeatInterval[/c] to control how often the RepeatButton repeatedly fires.
                     </TextBlock>
                     <Button CommandName="RepeatButtonSample2" HorizontalAlignment="Stretch" Padding="15,5" Background="DarkBlue"
-                            Content="1.5s initial interval, then repeats 30 times per second" 
+                            Content="1.5s initial interval, then repeats 30 times per second"
                             IsRepeatButton="True" InitialRepeatInterval="00:00:01.5" RepeatInterval="00:00:00.034" />
                 </StackPanel>
             </DockPanel>

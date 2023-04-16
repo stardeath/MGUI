@@ -1,4 +1,4 @@
-<Window xmlns="clr-namespace:MGUI.Core.UI.XAML;assembly=MGUI.Core"
+﻿<Window xmlns="clr-namespace:MGUI.Core.UI.XAML;assembly=MGUI.Core"
         Left="440" Top="20" MinHeight="0" Width="500" Height="800" TitleText="GroupBox" Padding="10">
     <Window.Styles>
         <Style TargetType="TextBlock">
@@ -25,7 +25,7 @@
             <TextBlock StyleNames="Header1" Text="GroupBox:" HorizontalAlignment="Center" />
             <Separator/>
             <TextBlock>
-                GroupBoxes are bordered controls that wrap around their Content. 
+                GroupBoxes are bordered controls that wrap around their Content.
                 Unlike a simple [c=Turquoise]Border[/c], GroupBoxes also allow hosting a [c=Turquoise]Header[/c] Content inside the top portion of the border.
             </TextBlock>
             <Separator />
@@ -35,7 +35,7 @@
                 </GroupBox.Header>
                 <TextBlock>{Content}</TextBlock>
             </GroupBox>
-            
+
             <DockPanel>
                 <TextBlock Dock="Top">
                     Set [c=Turquoise]Header[/c] to customize the Content displayed in the top portion of the border.
@@ -147,7 +147,7 @@
                     <TextBlock Text="Set [c=Turquoise]Expander[/c] to customize the Expander's graphics." />
                     <GroupBox IsExpandable="True" Background="Olive">
                         <GroupBox.Expander>
-                            <Expander ExpanderButtonExpandedBackgroundBrush="rgb(140,140,140)" ExpanderButtonCollapsedBackgroundBrush="rgb(100,100,100)" 
+                            <Expander ExpanderButtonExpandedBackgroundBrush="rgb(140,140,140)" ExpanderButtonCollapsedBackgroundBrush="rgb(100,100,100)"
                                       ExpanderDropdownArrowColor="Purple" ExpanderDropdownArrowSize="10" ExpanderButtonSize="12" />
                         </GroupBox.Expander>
                         <TextBlock Text="This [c=Turquoise]GroupBox[/c] uses a customized [c=Turquoise]Expander[/c]" />

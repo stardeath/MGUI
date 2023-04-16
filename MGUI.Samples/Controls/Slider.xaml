@@ -31,7 +31,7 @@
 
             <DockPanel>
                 <TextBlock Dock="Top">
-                    Set [c=Turquoise][i]Minimum[/i][/c] and [c=Turquoise][i]Maximum[/i][/c] to control the valid range of values. 
+                    Set [c=Turquoise][i]Minimum[/i][/c] and [c=Turquoise][i]Maximum[/i][/c] to control the valid range of values.
                     Set [c=Turquoise][i]Value[/i][/c] to control the current value of the thumb grip.
                 </TextBlock>
                 <DockPanel HorizontalAlignment="Left" Background="White * 0.1" Padding="4" Margin="0,4,0,0">
@@ -51,8 +51,8 @@
 
             <DockPanel>
                 <TextBlock Dock="Top">
-                    Set [c=Turquoise][i]UseDiscreteValues[/i][/c] to [c=LightBlue][s=Blue]true[/s][/c] and set [c=Turquoise][i]DiscreteValueInterval[/i][/c] 
-                    to make the slider's value snap to specific discrete values instead of a allowing a continuous range. 
+                    Set [c=Turquoise][i]UseDiscreteValues[/i][/c] to [c=LightBlue][s=Blue]true[/s][/c] and set [c=Turquoise][i]DiscreteValueInterval[/i][/c]
+                    to make the slider's value snap to specific discrete values instead of a allowing a continuous range.
                 </TextBlock>
                 <DockPanel HorizontalAlignment="Left" Background="White * 0.1" Padding="4" Margin="0,4,0,0">
                     <TextBlock Dock="Top">
@@ -68,7 +68,7 @@
                 </DockPanel>
             </DockPanel>
             <Separator/>
-            
+
             <DockPanel>
                 <TextBlock Dock="Top">
                     Set [c=Turquoise][i]NumberLineSize[/i][/c], [c=Turquoise][i]ThumbWidth[/i][/c], and [c=Turquoise][i]ThumbHeight[/i][/c]
@@ -113,15 +113,15 @@
 
             <DockPanel>
                 <TextBlock Dock="Top">
-                    Set [c=Turquoise][i]DrawTicks[/i][/c] to [c=LightBlue][s=Blue]true[/s][/c] and set [c=Turquoise][i]TickFrequency[/i][/c] 
+                    Set [c=Turquoise][i]DrawTicks[/i][/c] to [c=LightBlue][s=Blue]true[/s][/c] and set [c=Turquoise][i]TickFrequency[/i][/c]
                     to add tick marks to the number line.
                 </TextBlock>
                 <StackPanel HorizontalAlignment="Left" Background="White * 0.1" Padding="4" Margin="0,4,0,0">
                     <TextBlock Text="This slider ranges from 0 to 10, with a tick mark at every even integer" />
                     <Slider Width="200" Minimum="0" Maximum="10" DrawTicks="True" TickFrequency="2" />
                     <TextBlock>
-                        A tick mark is always drawn on the left and right edge. 
-                        This slider ranges from [c=yellow]1[/c] to 10, with [c=Turquoise][i]TickFrequency[/i][/c]=[c=LightBlue][s=Blue]2[/s][/c]. 
+                        A tick mark is always drawn on the left and right edge.
+                        This slider ranges from [c=yellow]1[/c] to 10, with [c=Turquoise][i]TickFrequency[/i][/c]=[c=LightBlue][s=Blue]2[/s][/c].
                         Notice that the rightmost tick, and the tick just left of it don't differ by exactly 2
                         because the total range is not evenly divisible by the TickFrequency.
                     </TextBlock>
@@ -132,7 +132,7 @@
 
             <DockPanel>
                 <TextBlock Dock="Top">
-                    Set [c=Turquoise][i]TickWidth[/i][/c], [c=Turquoise][i]TickHeight[/i][/c], [c=Turquoise][i]TickBorderThickness[/i][/c], 
+                    Set [c=Turquoise][i]TickWidth[/i][/c], [c=Turquoise][i]TickHeight[/i][/c], [c=Turquoise][i]TickBorderThickness[/i][/c],
                     [c=Turquoise][i]TickBorderBrush[/i][/c], and [c=Turquoise][i]TickFillBrush[/i][/c]
                     to change the appearance of tick marks.
                 </TextBlock>

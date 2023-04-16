@@ -30,8 +30,8 @@
             <Separator/>
 
             <TextBlock>
-                Layout containers are elements that can host multiple children for their Content. 
-                Each type of layout container ([c=Turquoise][i]StackPanel[/i][/c], [c=Turquoise][i]DockPanel[/i][/c], [c=Turquoise][i]Grid[/i][/c] etc) 
+                Layout containers are elements that can host multiple children for their Content.
+                Each type of layout container ([c=Turquoise][i]StackPanel[/i][/c], [c=Turquoise][i]DockPanel[/i][/c], [c=Turquoise][i]Grid[/i][/c] etc)
                 defines its own rules for how it arranges the children.
             </TextBlock>
             <Separator/>
@@ -145,7 +145,7 @@
                 </TextBlock>
                 <StackPanel Orientation="Vertical" Background="White * 0.1" Padding="4" Margin="0,4,0,0" Spacing="2">
                     <TextBlock>
-                        This StackPanel has a hard-coded width of 230px (after accounting for Padding). 
+                        This StackPanel has a hard-coded width of 230px (after accounting for Padding).
                         The 2nd child can only receive 100px because that's all the remaining space after the 1st child consumed 130px.
                     </TextBlock>
                     <StackPanel Orientation="Horizontal" Background="White * 0.1" HorizontalAlignment="Left" Padding="5" Width="240">
@@ -168,7 +168,7 @@
                 </StackPanel>
             </DockPanel>
             <Separator/>
-            
+
         </StackPanel>
     </ScrollViewer>
 </Window>

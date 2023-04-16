@@ -61,7 +61,7 @@
 
             <DockPanel>
                 <TextBlock Dock="Top">
-                    Set [c=Turquoise][i]BubbleComponentBorderColor[/i][/c], [c=Turquoise][i]BubbleComponentBorderThickness[/i][/c], 
+                    Set [c=Turquoise][i]BubbleComponentBorderColor[/i][/c], [c=Turquoise][i]BubbleComponentBorderThickness[/i][/c],
                     [c=Turquoise][i]BubbleComponentBackground[/i][/c], and [c=Turquoise][i]BubbleCheckedColor[/i][/c] to control the checkable circle's appearance.
                 </TextBlock>
                 <StackPanel Orientation="Vertical" Background="White * 0.1" Padding="4" Margin="0,4,0,0" Spacing="2">
@@ -96,13 +96,13 @@
                     <RadioButton Content="c++" />
                     <RadioButton Content="javascript">
                         <RadioButton.ToolTip>
-                            <ToolTip Background="rgb(56,56,56,218)" TextForeground="rgb(240,240,240)" Padding="6,3" 
+                            <ToolTip Background="rgb(56,56,56,218)" TextForeground="rgb(240,240,240)" Padding="6,3"
                                      Content="If you choose this, you are a psychopath" ShowDelay="00:00:00.03" />
                         </RadioButton.ToolTip>
                     </RadioButton>
                     <RadioButton Content="brainfuck">
                         <RadioButton.ToolTip>
-                            <ToolTip Background="rgb(56,56,56,218)" TextForeground="rgb(240,240,240)" Padding="6,3" 
+                            <ToolTip Background="rgb(56,56,56,218)" TextForeground="rgb(240,240,240)" Padding="6,3"
                                      Content="If you choose this, you are a psychopath. But at least you didn't pick JavaScript..." ShowDelay="00:00:00.03" />
                         </RadioButton.ToolTip>
                     </RadioButton>

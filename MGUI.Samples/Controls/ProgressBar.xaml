@@ -51,7 +51,7 @@
                         This ProgressBar's [c=Turquoise][i]CompletedBrush[/i][/c] is set to Red, and it's [c=Turquoise][i]IncompleteBrush[/i][/c] is Gray.
                         It also has a 1px Gold border.
                     </TextBlock>
-                    
+
                     <DockPanel Dock="Bottom">
                         <ToggleButton Name="ToggleButton2" Padding="10,2" IsChecked="True" Dock="Left" Margin="0,0,10,0" Content="Loop" VerticalAlignment="Center" />
                         <Button Dock="Left" Margin="0,0,10,0" Padding="10,2" Content="Reset Progress" VerticalAlignment="Center" CommandName="ResetProgressBar2Progress" />
@@ -69,7 +69,7 @@
             <StackPanel Orientation="Vertical" Background="White * 0.1">
                 <DockPanel Padding="4">
                     <TextBlock Dock="Top">
-                        This ProgressBar's [c=Turquoise][i]IncompleteBrush[/i][/c] is set to a TextureFillBrush. 
+                        This ProgressBar's [c=Turquoise][i]IncompleteBrush[/i][/c] is set to a TextureFillBrush.
                         Notice that the texture is stretched/compressed to fit exactly to the bounds of the incomplete portion of the bar.
                     </TextBlock>
 
@@ -206,7 +206,7 @@
 
             <DockPanel>
                 <TextBlock Dock="Top">
-                    Set [c=Turquoise][i]IsReversed[/i][/c] to control the progress bar's flow direction 
+                    Set [c=Turquoise][i]IsReversed[/i][/c] to control the progress bar's flow direction
                     (default = Left to Right, or Bottom to Top depending on [c=LightBlue][s=Blue]Orientation[/s][/c])
                 </TextBlock>
                 <DockPanel Background="White * 0.1" Padding="4" Margin="0,4,0,0">
@@ -234,17 +234,17 @@
                 </TextBlock>
 
                 <StackPanel Background="White * 0.1" Padding="4" Margin="0,4,0,0" Orientation="Vertical" Spacing="8">
-                    <ProgressBar Name="ProgressBar9" Minimum="0" Maximum="100" Value="0" ShowValue="True" CompletedBrush="Green|LightGreen" IncompleteBrush="rgb(32,32,32)" 
+                    <ProgressBar Name="ProgressBar9" Minimum="0" Maximum="100" Value="0" ShowValue="True" CompletedBrush="Green|LightGreen" IncompleteBrush="rgb(32,32,32)"
                                  BorderBrush="rgb(0,66,10)" BorderThickness="3" />
                     <ProgressBar Name="ProgressBar10" Minimum="0" Maximum="100" Value="0" Size="12" CompletedBrush="LightBlue" Background="Blue|Black"
                                  BorderBrush="rgb(0,0,77)" BorderThickness="2" />
                     <ProgressBar Name="ProgressBar11" Size="6" BorderThickness="0,0,0,1" BorderBrush="Black"
                                  Minimum="0" Maximum="100" Value="0"
-                                 CompletedBrush="rgb(56,114,217)|rgb(155,178,220)|rgb(155,178,220)|rgb(56,114,217)" 
+                                 CompletedBrush="rgb(56,114,217)|rgb(155,178,220)|rgb(155,178,220)|rgb(56,114,217)"
                                  IncompleteBrush="rgb(60,0,0)" />
                     <!-- Note: This ProgressBar's CompletedBrush is set to an MGProgressBarGradientBrush in the c# code -->
                     <!-- Which uses a different color based on what percent of the bar is filled -->
-                    <ProgressBar Name="ProgressBar12" Minimum="0" Maximum="100" Value="0" ShowValue="True" IncompleteBrush="rgb(32,32,32)" 
+                    <ProgressBar Name="ProgressBar12" Minimum="0" Maximum="100" Value="0" ShowValue="True" IncompleteBrush="rgb(32,32,32)"
                                  ValueDisplayFormat="[b][s=LightBlue]{{Value}}[/b][/s] / [b][s=LightBlue]{{Maximum}}[/b][/s]"
                                  NumberFormat="0" BorderBrush="Black" BorderThickness="2" />
                 </StackPanel>

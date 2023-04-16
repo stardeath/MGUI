@@ -50,7 +50,7 @@
                 </TextBlock>
                 <StackPanel Orientation="Vertical" Background="White * 0.1" Padding="4" Margin="0,4,0,0" Spacing="2">
                     <TextBlock>
-                        To specify a Generic Type in XAML, use the [i]x:Type MarkupExtension[/i]. 
+                        To specify a Generic Type in XAML, use the [i]x:Type MarkupExtension[/i].
                         This XAML creates a [c=Turquoise][i]ComboBox&lt;[c=LightBlue][s=Blue]string[/s][/c]&gt;[/i][/c] and adds 3 [c=LightBlue][s=Blue]strings[/s][/c] to it.
                     </TextBlock>
                     <TextBox IsReadonly="True" Name="TextBox1" Background="rgb(12,16,82)" />
@@ -70,7 +70,7 @@
                         <ComboBox.DropdownItemTemplate>
                             <ContentTemplate>
                                 <StackPanel Orientation="Horizontal" Spacing="5">
-                                    <Rectangle Stroke="Black" StrokeThickness="1" Width="16" Height="16" VerticalAlignment="Center" 
+                                    <Rectangle Stroke="Black" StrokeThickness="1" Width="16" Height="16" VerticalAlignment="Center"
                                                Fill="{MGBinding Path=FillBrush, Mode=OneTime}" />
                                     <TextBlock VerticalAlignment="Center" Text="{MGBinding Path=Name, Mode=OneTime}" />
                                 </StackPanel>
@@ -83,7 +83,7 @@
                         <ComboBox.DropdownItemTemplate>
                             <ContentTemplate>
                                 <StackPanel Orientation="Horizontal" Spacing="5">
-                                    <Rectangle Stroke="Black" StrokeThickness="1" Width="16" Height="16" VerticalAlignment="Center" 
+                                    <Rectangle Stroke="Black" StrokeThickness="1" Width="16" Height="16" VerticalAlignment="Center"
                                                Fill="{MGBinding Path=FillBrush, Mode=OneTime}" />
                                     <TextBlock VerticalAlignment="Center" Text="{MGBinding Path=Name, Mode=OneTime}" />
                                 </StackPanel>
@@ -91,7 +91,7 @@
                         </ComboBox.DropdownItemTemplate>
                         <ComboBox.SelectedItemTemplate>
                             <ContentTemplate>
-                                <Border BorderBrush="Black * 0.3" BorderThickness="1" Margin="4,2" Padding="4,2" 
+                                <Border BorderBrush="Black * 0.3" BorderThickness="1" Margin="4,2" Padding="4,2"
                                         VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
                                         Background="{MGBinding Path=FillBrush, Mode=OneTime}">
                                     <TextBlock Text="{MGBinding Path=Name, Mode=OneTime}" IsBold="True" IsShadowed="True" ShadowColor="Black" Foreground="rgb(240,232,240)" />
@@ -100,7 +100,7 @@
                         </ComboBox.SelectedItemTemplate>
                     </ComboBox>
                     <TextBlock>
-                        Each item inside the dropdown is automatically wrapped inside of a Button. 
+                        Each item inside the dropdown is automatically wrapped inside of a Button.
                         You can customize the Button's appearance by making the outermost element of the
                         [c=Turquoise][i]DropdownItemTemplate[/i][/c] be of type [c=Turquoise][i]Button[/i][/c].
                     </TextBlock>
@@ -111,7 +111,7 @@
                                 <Button Padding="6,3" Background="rgb(0,0,56)" BackgroundFocusedColor="rgb(0,0,40,96)" SelectedBackground="Purple * 0.7"
                                         BorderBrush="Gray" BorderThickness="1" Margin="0,4,0,0">
                                     <StackPanel Orientation="Horizontal" Spacing="5">
-                                        <Rectangle Stroke="Black" StrokeThickness="1" Width="16" Height="16" VerticalAlignment="Center" 
+                                        <Rectangle Stroke="Black" StrokeThickness="1" Width="16" Height="16" VerticalAlignment="Center"
                                                Fill="{MGBinding Path=FillBrush, Mode=OneTime}" />
                                         <TextBlock VerticalAlignment="Center" Text="{MGBinding Path=Name, Mode=OneTime}" />
                                     </StackPanel>
@@ -121,7 +121,7 @@
                         <ComboBox.SelectedItemTemplate>
                             <ContentTemplate>
                                 <StackPanel Orientation="Horizontal" Spacing="5">
-                                    <Rectangle Stroke="Black" StrokeThickness="1" Width="16" Height="16" VerticalAlignment="Center" 
+                                    <Rectangle Stroke="Black" StrokeThickness="1" Width="16" Height="16" VerticalAlignment="Center"
                                                Fill="{MGBinding Path=FillBrush, Mode=OneTime}" />
                                     <TextBlock VerticalAlignment="Center" Text="{MGBinding Path=Name, Mode=OneTime}" />
                                 </StackPanel>
@@ -134,7 +134,7 @@
 
             <DockPanel>
                 <TextBlock Dock="Top">
-                    Set [c=Turquoise][i]MinDropdownWidth[/i][/c], [c=Turquoise][i]MaxDropdownWidth[/i][/c], 
+                    Set [c=Turquoise][i]MinDropdownWidth[/i][/c], [c=Turquoise][i]MaxDropdownWidth[/i][/c],
                     [c=Turquoise][i]MinDropdownHeight[/i][/c], and [c=Turquoise][i]MaxDropdownHeight[/i][/c]
                     to control the size of the dropdown Window.
                 </TextBlock>
@@ -171,7 +171,7 @@
 
             <DockPanel>
                 <TextBlock Dock="Top">
-                    You can also customize [c=Turquoise][i]Dropdown[/i][/c], [c=Turquoise][i]DropdownScrollViewer[/i][/c], 
+                    You can also customize [c=Turquoise][i]Dropdown[/i][/c], [c=Turquoise][i]DropdownScrollViewer[/i][/c],
                     and [c=Turquoise][i]DropdownStackPanel[/i][/c] for more detailed control over the dropdown's appearance.
                 </TextBlock>
                 <StackPanel Orientation="Vertical" Background="White * 0.1" Padding="4" Margin="0,4,0,0" Spacing="2">
@@ -211,7 +211,7 @@
             <DockPanel>
                 <TextBlock Dock="Top">
                     Set [c=Turquoise][i]DropdownArrowColor[/i][/c] to customize the appearance of the arrow graphics on the right side of the ComboBox's Content.
-                    To use your own custom graphics, you can set [c=Turquoise][i]DropdownArrowColor[/i][/c]=[c=LightBlue][s=Blue]Transparent[/s][/c] and modify 
+                    To use your own custom graphics, you can set [c=Turquoise][i]DropdownArrowColor[/i][/c]=[c=LightBlue][s=Blue]Transparent[/s][/c] and modify
                     [c=Turquoise][i]DropdownArrowElement[/i][/c] to draw your own content.
                 </TextBlock>
                 <StackPanel Orientation="Vertical" Background="White * 0.1" Padding="4" Margin="0,4,0,0" Spacing="2">

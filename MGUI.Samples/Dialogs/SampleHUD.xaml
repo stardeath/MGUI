@@ -1,10 +1,10 @@
-<Window xmlns="clr-namespace:MGUI.Core.UI.XAML;assembly=MGUI.Core"
+﻿<Window xmlns="clr-namespace:MGUI.Core.UI.XAML;assembly=MGUI.Core"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:MGUI.Samples.Dialogs;assembly=MGUI.Samples"
         xmlns:Converters="clr-namespace:MGUI.Core.UI.Data_Binding.Converters;assembly=MGUI.Core"
         Left="0" Top="0" SizeToContent="WidthAndHeight" WindowStyle="None" AllowsClickThrough="True" IsTopmost="True">
     <Grid RowLengths="*" ColumnLengths="*">
-        
+
         <!-- HP/MP/Stamina/XP bars in top-left corner -->
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Padding="8" Spacing="3" Orientation="Vertical" Background="White * 0.1">
             <StackPanel.Styles>
@@ -40,7 +40,7 @@
                     </Setter>
                 </Style>
             </StackPanel.Styles>
-            
+
             <!-- HP -->
             <OverlayPanel>
                 <ProgressBar Maximum="{MGBinding Path=MaxHP}" Value="{MGBinding Path=CurrentHP}" Width="{MGBinding Path=HPBarWidth}">
@@ -50,7 +50,7 @@
                 </ProgressBar>
                 <Image SourceName="HUD_HP" />
             </OverlayPanel>
-            
+
             <!-- MP -->
             <OverlayPanel>
                 <ProgressBar Maximum="{MGBinding Path=MaxMP}" Value="{MGBinding Path=CurrentMP}" Width="{MGBinding Path=MPBarWidth}">
@@ -60,7 +60,7 @@
                 </ProgressBar>
                 <Image SourceName="HUD_MP" />
             </OverlayPanel>
-            
+
             <!-- Stamina -->
             <OverlayPanel>
                 <ProgressBar Maximum="{MGBinding Path=MaxStamina}" Value="{MGBinding Path=CurrentStamina}" Width="{MGBinding Path=StaminaBarWidth}">
@@ -70,7 +70,7 @@
                 </ProgressBar>
                 <Image SourceName="HUD_Stamina" />
             </OverlayPanel>
-            
+
             <!-- XP -->
             <ProgressBar Maximum="{MGBinding Path=NextLevelXP}" Value="{MGBinding Path=CurrentXP}" HorizontalAlignment="Stretch" ShowValue="False" Size="4" BorderThickness="0" Background="Transparent">
                 <ProgressBar.CompletedBrush>
@@ -109,7 +109,7 @@
                     </ListBox.ItemContainerStyle>
                     <ListBox.ItemTemplate>
                         <ContentTemplate>
-                            <StackPanel Orientation="Horizontal" Spacing="5" 
+                            <StackPanel Orientation="Horizontal" Spacing="5"
                                         ToolTip="{MGBinding Path=Description, Mode=OneWay, Converter={Converters:StringToToolTipConverter ShowDelay='0:00:00.065', FontSize=9, IsBold=True}}">
                                 <StackPanel.Styles>
                                     <Style TargetType="TextBlock">

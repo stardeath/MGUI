@@ -25,7 +25,7 @@
             <TextBlock StyleNames="Header1" Text="ContextMenu:" HorizontalAlignment="Center" />
             <Separator/>
             <TextBlock>
-                ContextMenus are menus that appear when right-clicking their host element. 
+                ContextMenus are menus that appear when right-clicking their host element.
                 They're drawn overtop of all other content, appearing at the position that the mouse was in the moment the host was right-clicked.
             </TextBlock>
             <Separator />
@@ -52,12 +52,12 @@
 
             <DockPanel>
                 <TextBlock Dock="Top">
-                    ContextMenus are typically anchored to a host. Set [c=Turquoise][i]Element.ContextMenu[/i][/c] to associate a ContextMenu with a host. 
+                    ContextMenus are typically anchored to a host. Set [c=Turquoise][i]Element.ContextMenu[/i][/c] to associate a ContextMenu with a host.
                     The ContextMenu is displayed at the mouse position when right-clicking the host:
                 </TextBlock>
                 <TextBlock Dock="Bottom">
-                    Clicking a menu item automatically closes the menu and invokes [c=Turquoise][i]ContextMenu.ItemSelected[/i][/c]. 
-                    You should subscribe to [c=Turquoise][i]ContextMenu.ItemSelected[/i][/c] to react to the menu item being chosen. 
+                    Clicking a menu item automatically closes the menu and invokes [c=Turquoise][i]ContextMenu.ItemSelected[/i][/c].
+                    You should subscribe to [c=Turquoise][i]ContextMenu.ItemSelected[/i][/c] to react to the menu item being chosen.
                     You may wish to set [c=Turquoise][i]ContextMenuButton.CommandId[/i][/c] on each menu item to easily determine what logic to execute in your subscribing code.
                 </TextBlock>
                 <StackPanel HorizontalAlignment="Left" Background="White * 0.1" Padding="4" Margin="0,4,0,0">
@@ -115,7 +115,7 @@
 
             <DockPanel>
                 <TextBlock Dock="Top">
-                    Each menu item's Content is automatically wrapped within a Button created by [c=Turquoise][i]ContextMenu.ButtonWrapperTemplate[/i][/c]. 
+                    Each menu item's Content is automatically wrapped within a Button created by [c=Turquoise][i]ContextMenu.ButtonWrapperTemplate[/i][/c].
                     You can change this template to modify the appearance of the menu items.
                 </TextBlock>
                 <StackPanel HorizontalAlignment="Left" Background="White * 0.1" Padding="4" Margin="0,4,0,0">

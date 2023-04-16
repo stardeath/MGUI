@@ -1,4 +1,4 @@
-<Window xmlns="clr-namespace:MGUI.Core.UI.XAML;assembly=MGUI.Core"
+﻿<Window xmlns="clr-namespace:MGUI.Core.UI.XAML;assembly=MGUI.Core"
         Left="440" Top="20" MinHeight="0" Width="500" Height="800" TitleText="UniformGrid" Padding="10">
     <Window.Styles>
         <Style TargetType="TextBlock">
@@ -25,15 +25,15 @@
             <TextBlock StyleNames="Header1" Text="UniformGrid:" HorizontalAlignment="Center" />
             <Separator/>
             <TextBlock>
-                UniformGrids are a layout container that arranges its children according to the Cell (Row+Column) they're assigned to. 
+                UniformGrids are a layout container that arranges its children according to the Cell (Row+Column) they're assigned to.
                 They are a specialized type of [c=Turquoise][i]Grid[/i][/c]. Unlike [c=Turquoise][i]Grids[/i][/c], [c=Turquoise][i]UniformGrids[/i][/c]
                 allocate the same dimensions to each cell.
             </TextBlock>
             <Separator />
 
             <TextBlock>
-                Layout containers are elements that can host multiple children for their Content. 
-                Each type of layout container ([c=Turquoise][i]StackPanel[/i][/c], [c=Turquoise][i]DockPanel[/i][/c], [c=Turquoise][i]Grid[/i][/c] etc) 
+                Layout containers are elements that can host multiple children for their Content.
+                Each type of layout container ([c=Turquoise][i]StackPanel[/i][/c], [c=Turquoise][i]DockPanel[/i][/c], [c=Turquoise][i]Grid[/i][/c] etc)
                 defines its own rules for how it arranges the children.
             </TextBlock>
             <Separator/>
@@ -62,7 +62,7 @@
                     </UniformGrid>
                     <Spacer Height="2" />
                     <TextBlock>
-                        If you specify 1 dimension but not the other, the other dimension will be dynamically assigned based on how many child elements the UniformGrid has. 
+                        If you specify 1 dimension but not the other, the other dimension will be dynamically assigned based on how many child elements the UniformGrid has.
                         This UniformGrid explicitly sets [c=Turquoise][i]Rows[/i][/c]=[c=LightBlue][s=Blue]2[/s][/c] and has [b]7[/b] child elements.
                         [c=Turquoise][i]Columns[/i][/c] is automatically set to [c=LightBlue][s=Blue]4[/s][/c] as that's the minimal amount needed to display all 7 children.
                     </TextBlock>
@@ -287,7 +287,7 @@
                     </UniformGrid>
                     <Spacer Height="2" />
                     <TextBlock>
-                        You can also set [c=Turquoise][i]DrawEmptyCells[/i][/c]=[c=LightBlue][s=Blue]false[/s][/c] to avoid drawing the 
+                        You can also set [c=Turquoise][i]DrawEmptyCells[/i][/c]=[c=LightBlue][s=Blue]false[/s][/c] to avoid drawing the
                         [c=Turquoise][i]CellBackground[/i][/c] to cells without any Content.
                     </TextBlock>
                     <UniformGrid Columns="2" CellSize="88,38" AutoAssignCells="True" RowSpacing="2" ColumnSpacing="2" DrawEmptyCells="False">

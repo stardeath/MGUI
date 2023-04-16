@@ -25,14 +25,14 @@
             <TextBlock StyleNames="Header1" Text="DockPanel:" HorizontalAlignment="Center" />
             <Separator/>
             <TextBlock>
-                DockPanels are a layout container that arranges its children by anchoring them to an edge 
+                DockPanels are a layout container that arranges its children by anchoring them to an edge
                 ([c=Turquoise][i]Left[/i][/c], [c=Turquoise][i]Top[/i][/c], [c=Turquoise][i]Right[/i][/c], or [c=Turquoise][i]Bottom[/i][/c]) of the DockPanel's bounds.
             </TextBlock>
             <Separator/>
 
             <TextBlock>
-                Layout containers are elements that can host multiple children for their Content. 
-                Each type of layout container ([c=Turquoise][i]StackPanel[/i][/c], [c=Turquoise][i]DockPanel[/i][/c], [c=Turquoise][i]Grid[/i][/c] etc) 
+                Layout containers are elements that can host multiple children for their Content.
+                Each type of layout container ([c=Turquoise][i]StackPanel[/i][/c], [c=Turquoise][i]DockPanel[/i][/c], [c=Turquoise][i]Grid[/i][/c] etc)
                 defines its own rules for how it arranges the children.
             </TextBlock>
             <Separator/>
@@ -97,7 +97,7 @@
 
             <DockPanel>
                 <TextBlock Dock="Top">
-                    You can dock multiple children to the same edge. Space is allocated from the outside inwards 
+                    You can dock multiple children to the same edge. Space is allocated from the outside inwards
                     (so the first child docked to a particular edge will be along the outermost part of the DockPanel's bounds)
                 </TextBlock>
                 <StackPanel Orientation="Vertical" Background="White * 0.1" Padding="4" Margin="0,4,0,0" Spacing="2" HorizontalAlignment="Left">
