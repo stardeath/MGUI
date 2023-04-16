@@ -1,15 +1,9 @@
-﻿using Microsoft.Xna.Framework;
-using MGUI.Shared.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MonoGame.Extended;
+﻿using MGUI.Core.UI.Brushes.Border_Brushes;
 using MGUI.Core.UI.Containers;
-using MGUI.Core.UI.Brushes.Border_Brushes;
-using MGUI.Shared.Input.Mouse;
 using MGUI.Shared.Input;
+using MGUI.Shared.Input.Mouse;
+using MonoGame.Extended;
+using System;
 using System.Diagnostics;
 
 namespace MGUI.Core.UI
@@ -166,10 +160,10 @@ namespace MGUI.Core.UI
 
                 this.HorizontalContentAlignment = HorizontalAlignment.Center;
                 this.VerticalContentAlignment = VerticalAlignment.Center;
-                this.Padding = new(4,2,4,2);
+                this.Padding = new(4, 2, 4, 2);
 
                 MouseHandler.PressedInside += (sender, e) =>
-                { 
+                {
                     PressedArgs = e;
                     if (IsRepeatButton)
                         e.SetHandledBy(this, false);
@@ -190,7 +184,7 @@ namespace MGUI.Core.UI
 
                 if (HandleLeftClick != null)
                 {
-                    this.Command = (btn) => 
+                    this.Command = (btn) =>
                     {
                         HandleLeftClick(btn);
                         return true;
@@ -240,7 +234,7 @@ namespace MGUI.Core.UI
         /// The last time that this <see cref="MGButton"/>'s <see cref="CommandName"/> and/or <see cref="Command"/> was repeated.</summary>
         private DateTime? RepeatedAt { get; set; }
 
-        private bool IsRepeatPending(DateTime Now) => 
+        private bool IsRepeatPending(DateTime Now) =>
             (!RepeatedAt.HasValue && Now.Subtract(PressedAt.Value) >= InitialRepeatInterval) ||
             (RepeatedAt.HasValue && Now.Subtract(RepeatedAt.Value) >= RepeatInterval);
 

@@ -1,14 +1,11 @@
-﻿using System;
+﻿using MGUI.Shared.Helpers;
+using Microsoft.Xna.Framework.Content;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using Microsoft.Xna.Framework.Content;
-using MGUI.Shared.Helpers;
+using System.Linq;
+using System.Reflection;
 
 namespace MGUI.Shared.Text
 {
@@ -26,7 +23,7 @@ namespace MGUI.Shared.Text
 
     public static class SpritefontGenerator
     {
-        private const string DefaultSpritefontContent = 
+        private const string DefaultSpritefontContent =
 @"<?xml version=""1.0"" encoding=""utf-8""?>
 <XnaContent xmlns:Graphics=""Microsoft.Xna.Framework.Content.Pipeline.Graphics"">
     <Asset Type=""Graphics:FontDescription"">

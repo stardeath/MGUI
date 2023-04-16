@@ -1,24 +1,19 @@
-﻿using Microsoft.Xna.Framework;
+﻿using MGUI.Core.UI.Brushes.Border_Brushes;
+using MGUI.Core.UI.Brushes.Fill_Brushes;
+using MGUI.Core.UI.Containers;
+using MGUI.Core.UI.XAML;
 using MGUI.Shared.Helpers;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MonoGame.Extended;
-using MGUI.Core.UI.Containers;
-using MGUI.Core.UI.Brushes.Border_Brushes;
-using MGUI.Core.UI.Brushes.Fill_Brushes;
-using MGUI.Core.UI.XAML;
-using Microsoft.Xna.Framework.Graphics;
 using System.Diagnostics;
-using Thickness = MonoGame.Extended.Thickness;
+using System.Linq;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 using Size = MonoGame.Extended.Size;
-using MGUI.Core.UI.Data_Binding;
+using Thickness = MonoGame.Extended.Thickness;
 
 namespace MGUI.Core.UI
 {
@@ -291,7 +286,7 @@ namespace MGUI.Core.UI
                     List<TItemType> New = e.NewItems.Cast<TItemType>().ToList();
                     for (int i = 0; i < Old.Count; i++)
                     {
-                        TItemType NewItem = New[i]; 
+                        TItemType NewItem = New[i];
                         TemplatedElement<TItemType, MGButton> TemplatedItem = new(NewItem, DropdownItemTemplate(NewItem));
                         TemplatedItems[e.OldStartingIndex + i] = TemplatedItem;
                     }

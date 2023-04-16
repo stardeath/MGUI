@@ -7,8 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MGUI.Core.UI.Brushes.Border_Brushes
 {
@@ -69,7 +67,7 @@ namespace MGUI.Core.UI.Brushes.Border_Brushes
             {
                 double PercentageThickness = Band.ThicknessWeight / TotalWeight;
                 Thickness BandThickness = new(
-                    (int)(BT.Left * PercentageThickness), (int)(BT.Top * PercentageThickness), 
+                    (int)(BT.Left * PercentageThickness), (int)(BT.Top * PercentageThickness),
                     (int)(BT.Right * PercentageThickness), (int)(BT.Bottom * PercentageThickness));
 
                 Band.Brush.Draw(DA, Element, RemainingBounds, BandThickness);

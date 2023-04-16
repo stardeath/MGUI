@@ -4,10 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MGUI.Core.UI.Brushes.Border_Brushes
 {
@@ -131,7 +128,7 @@ namespace MGUI.Core.UI.Brushes.Border_Brushes
         public MGTexturedBorderBrush(Texture2D EdgeTexture, Texture2D CornerTexture, TextureTransforms? Transforms = null, float Opacity = 1.0f)
             : this(new MGTextureData(EdgeTexture), null, new MGTextureData(CornerTexture), null, Transforms, Opacity) { }
 
-        public MGTexturedBorderBrush(MGTextureData EdgeTexture, Color? EdgeColor, MGTextureData CornerTexture, Color? CornerColor, 
+        public MGTexturedBorderBrush(MGTextureData EdgeTexture, Color? EdgeColor, MGTextureData CornerTexture, Color? CornerColor,
             TextureTransforms? Transforms = null, float Opacity = 1.0f)
         {
             this.EdgeTexture = EdgeTexture;
@@ -212,7 +209,7 @@ namespace MGUI.Core.UI.Brushes.Border_Brushes
             if (CornerTexture.Texture?.IsDisposed == false)
             {
                 CornerTransforms CornerTransforms = Transforms.CornerTransforms;
-                Color CornerColor = this.CornerColor * Opacity *CornerTexture.Opacity;
+                Color CornerColor = this.CornerColor * Opacity * CornerTexture.Opacity;
 
                 int SourceWidth = CornerTexture.RenderSize.Width;
                 int SourceHeight = CornerTexture.RenderSize.Height;

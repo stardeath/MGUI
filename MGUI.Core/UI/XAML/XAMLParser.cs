@@ -1,15 +1,4 @@
-﻿using MonoGame.Extended;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
-using MGUI.Core.UI.Brushes.Fill_Brushes;
-using MGUI.Core.UI.Brushes.Border_Brushes;
-using Microsoft.Xna.Framework.Graphics;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using System.Xml.Linq;
@@ -33,7 +22,7 @@ namespace MGUI.Core.UI.XAML
 
         private static readonly string XMLNameSpaces =
             $"xmlns=\"{XMLNameSpaceBaseUri}\" xmlns:x=\"http://schemas.microsoft.com/winfx/2006/xaml\" xmlns:{XMLLocalNameSpacePrefix}=\"{XMLLocalNameSpaceUri}\"";
-            //$"xmlns=\"{XMLLocalNameSpaceUri}\" xmlns:x=\"{XMLNameSpaceBaseUri}\""; // This URI avoids using a prefix for the MGUI namespace
+        //$"xmlns=\"{XMLLocalNameSpaceUri}\" xmlns:x=\"{XMLNameSpaceBaseUri}\""; // This URI avoids using a prefix for the MGUI namespace
 
         private static readonly Dictionary<string, string> ElementNameAliases = new()
         {

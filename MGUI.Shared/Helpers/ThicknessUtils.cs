@@ -1,10 +1,8 @@
-﻿using System;
+﻿using MonoGame.Extended;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Diagnostics;
-using MonoGame.Extended;
+using System.Linq;
 
 namespace MGUI.Shared.Helpers
 {
@@ -26,9 +24,9 @@ namespace MGUI.Shared.Helpers
             => new(@this.Left + other.Left, @this.Top + other.Top, @this.Right + other.Right, @this.Bottom + other.Bottom);
 
         public static Thickness Subtract(this Thickness @this, Thickness other, int? MinLeft = null, int? MinTop = null, int? MinRight = null, int? MinBottom = null)
-            => new(Math.Max(MinLeft ?? int.MinValue, @this.Left - other.Left), 
-                Math.Max(MinTop ?? int.MinValue, @this.Top - other.Top), 
-                Math.Max(MinRight ?? int.MinValue , @this.Right - other.Right), 
+            => new(Math.Max(MinLeft ?? int.MinValue, @this.Left - other.Left),
+                Math.Max(MinTop ?? int.MinValue, @this.Top - other.Top),
+                Math.Max(MinRight ?? int.MinValue, @this.Right - other.Right),
                 Math.Max(MinBottom ?? int.MinValue, @this.Bottom - other.Bottom));
 
         /// <summary>Adjusts the total width and height of this <see cref="Thickness"/> to fit within the inclusive range [<paramref name="MinSize"/>, <paramref name="MaxSize"/>].<para/>

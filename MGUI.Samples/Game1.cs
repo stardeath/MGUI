@@ -1,14 +1,8 @@
 ﻿using MGUI.Core.UI;
-using MGUI.Shared.Helpers;
 using MGUI.Shared.Rendering;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 
 namespace MGUI.Samples
 {

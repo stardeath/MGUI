@@ -1,15 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using MGUI.Shared.Helpers;
+using MGUI.Shared.Rendering;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MonoGame.Extended;
-using System.ComponentModel;
 using System.Collections.ObjectModel;
-using MGUI.Shared.Helpers;
-using MGUI.Shared.Rendering;
+using System.Linq;
 
 namespace MGUI.Shared.Input.Mouse
 {

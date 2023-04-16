@@ -2,8 +2,8 @@
 using MGUI.Core.UI.Brushes.Fill_Brushes;
 using MGUI.Core.UI.Containers;
 using MGUI.Core.UI.XAML;
+using MGUI.Shared.Helpers;
 using Microsoft.Xna.Framework;
-using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,11 +11,8 @@ using System.Collections.Specialized;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Thickness = MonoGame.Extended.Thickness;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
-using MGUI.Shared.Helpers;
+using Thickness = MonoGame.Extended.Thickness;
 
 namespace MGUI.Core.UI
 {
@@ -663,7 +660,7 @@ namespace MGUI.Core.UI
                 ItemsPanel.BorderBrush = DefaultItemBorderBrush;
 
                 this.ItemContainerStyle = ApplyDefaultItemContainerStyle;
-                this.ItemTemplate = (item) => new MGTextBlock(ParentWindow, item.ToString()) { Padding = new(1,0) };
+                this.ItemTemplate = (item) => new MGTextBlock(ParentWindow, item.ToString()) { Padding = new(1, 0) };
 
                 this.SelectedItems = new List<MGListBoxItem<TItemType>>().AsReadOnly();
                 this.SelectionMode = ListBoxSelectionMode.Single;

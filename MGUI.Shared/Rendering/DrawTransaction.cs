@@ -8,8 +8,6 @@ using MonoGame.Extended.VectorDraw;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 //using XNAColor = Microsoft.Xna.Framework.Color;
 using WindingOrder = MonoGame.Extended.Triangulation.WindingOrder;
 
@@ -161,7 +159,7 @@ namespace MGUI.Shared.Rendering
         #endregion Draw Texture
 
         #region Draw Text
-        public void DrawSpriteFontText(SpriteFont Font, string Text, Vector2 Position, Color Color, 
+        public void DrawSpriteFontText(SpriteFont Font, string Text, Vector2 Position, Color Color,
             Vector2 Origin, float ScaleX = 1f, float ScaleY = 1f, float Rotation = 0f, float Depth = 0f, SpriteEffects Effects = SpriteEffects.None)
         {
             BeginDraw(DrawContext.Sprites);
@@ -183,7 +181,7 @@ namespace MGUI.Shared.Rendering
         /// <param name="DesiredFontSize">The desired size of the <see cref="SpriteFont"/>, in points.</param>
         /// <param name="Exact">If true, will attempt to render the text at exactly the given <paramref name="DesiredFontSize"/>.<br/>
         /// If false, treats <paramref name="DesiredFontSize"/> as an approximation, and may render the text slightly larger or smaller to avoid blurriness</param>
-        public Vector2 DrawShadowedText(string Family, CustomFontStyles Style, string Text, Vector2 Position, Color TextColor, Color ShadowColor, 
+        public Vector2 DrawShadowedText(string Family, CustomFontStyles Style, string Text, Vector2 Position, Color TextColor, Color ShadowColor,
             int DesiredFontSize, float XOffset = 1, float YOffset = 1, bool Exact = false)
         {
             DrawText(Family, Style, Text, Position + new Vector2(XOffset, YOffset), ShadowColor, DesiredFontSize, Exact);
@@ -776,7 +774,7 @@ namespace MGUI.Shared.Rendering
         /// the clip target will be the intersection of the current clip target and the given <paramref name="Bounds"/></param>
         public IDisposable SetClipTargetTemporary(Rectangle? Bounds, bool IntersectWithCurrentClipTarget)
         {
-            return new TemporaryChange<Rectangle?>(SB.GraphicsDevice.ScissorRectangle, Bounds, 
+            return new TemporaryChange<Rectangle?>(SB.GraphicsDevice.ScissorRectangle, Bounds,
                 x => SetClipTarget(x, IntersectWithCurrentClipTarget), x => SetClipTarget(x, false));
         }
 

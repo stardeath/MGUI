@@ -3,11 +3,7 @@ using MGUI.Core.UI.Brushes.Fill_Brushes;
 using MGUI.Shared.Helpers;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MGUI.Samples.Controls
 {
@@ -64,7 +60,7 @@ namespace MGUI.Samples.Controls
             Slider1 = Window.GetElementByName<MGSlider>("Slider1");
             Window.GetResources().AddCommand("ResetProgressBar1Progress", x => { ProgressBar1.Value = 0; });
             ProgressBar1.OnBeginUpdate += (sender, e) =>
-            { 
+            {
                 ProgressBar1.Value += Slider1.Value;
                 if (ToggleButton1.IsChecked && ProgressBar1.Value > ProgressBar1.Maximum)
                     ProgressBar1.Value = ProgressBar1.Minimum;
@@ -125,7 +121,8 @@ namespace MGUI.Samples.Controls
                     ProgressBar6.Value = ProgressBar6.Minimum;
             };
 
-            Window.GetOrCreateRadioButtonGroup("ValueDisplayMode").CheckedItemChanged += (sender, e) => {
+            Window.GetOrCreateRadioButtonGroup("ValueDisplayMode").CheckedItemChanged += (sender, e) =>
+            {
                 UpdateValueDisplayFormat(e.NewValue.Name);
             };
             UpdateValueDisplayFormat("RBExact");

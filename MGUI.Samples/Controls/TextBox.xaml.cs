@@ -1,10 +1,5 @@
 ﻿using MGUI.Core.UI;
 using Microsoft.Xna.Framework.Content;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MGUI.Samples.Controls
 {
@@ -43,7 +38,7 @@ namespace MGUI.Samples.Controls
             TextBox2.SelectionChanged += (sender, e) => TextBlock3.Text = TextBox2.FormattedText;
         }
 
-        private void UpdateTextBox1Labels() => 
+        private void UpdateTextBox1Labels() =>
             TextBlock1.Text = TextBox1.CurrentSelection == null ? "null" : $"{TextBox1.CurrentSelection.Value.Index1}-{TextBox1.CurrentSelection.Value.Index2}";
 
         private void UpdateTextBox2Labels()

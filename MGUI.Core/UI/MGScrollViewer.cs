@@ -1,16 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿using MGUI.Core.UI.Containers;
 using MGUI.Shared.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MonoGame.Extended;
-using MGUI.Core.UI.Containers;
-using MGUI.Core.UI.Brushes.Fill_Brushes;
-using MGUI.Core.UI.Brushes.Border_Brushes;
 using MGUI.Shared.Input.Mouse;
+using Microsoft.Xna.Framework;
+using MonoGame.Extended;
+using System;
 using System.Diagnostics;
 
 namespace MGUI.Core.UI
@@ -265,7 +258,7 @@ namespace MGUI.Core.UI
 
         /// <summary>Must always be true for <see cref="MGScrollViewer"/> to avoid content that is out of the <see cref="ContentViewport"/>'s bounds from being visible.</summary>
         public override bool ClipToBounds
-        { 
+        {
             get => base.ClipToBounds;
             set
             {
@@ -316,7 +309,7 @@ namespace MGUI.Core.UI
 
         protected override bool CanCacheSelfMeasurement => false; // The self measurement depends on the measurement of the children, so it must be re-calculated each time it's requested
 
-        public MGScrollViewer(MGWindow Window, ScrollBarVisibility VerticalScrollBarVisibility = ScrollBarVisibility.Auto, ScrollBarVisibility HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled) 
+        public MGScrollViewer(MGWindow Window, ScrollBarVisibility VerticalScrollBarVisibility = ScrollBarVisibility.Auto, ScrollBarVisibility HorizontalScrollBarVisibility = ScrollBarVisibility.Disabled)
             : base(Window, MGElementType.ScrollViewer)
         {
             using (BeginInitializing())

@@ -1,16 +1,12 @@
 ﻿using MGUI.Core.UI;
 using MGUI.Core.UI.Brushes.Fill_Brushes;
-using MGUI.Core.UI.Containers.Grids;
 using MGUI.Core.UI.Containers;
-using MGUI.Core.UI.XAML;
-using MGUI.Shared.Helpers;
+using MGUI.Core.UI.Containers.Grids;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
 using ColumnDefinition = MGUI.Core.UI.Containers.Grids.ColumnDefinition;
 using RowDefinition = MGUI.Core.UI.Containers.Grids.RowDefinition;
 

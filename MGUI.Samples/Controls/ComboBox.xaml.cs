@@ -1,17 +1,14 @@
 ﻿using MGUI.Core.UI;
-using MGUI.Core.UI.XAML;
+using MGUI.Core.UI.Brushes.Fill_Brushes;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using KnownColor = System.Drawing.KnownColor;
-using DrawingColor = System.Drawing.Color;
 using System.Reflection;
-using MGUI.Core.UI.Brushes.Fill_Brushes;
+using DrawingColor = System.Drawing.Color;
+using KnownColor = System.Drawing.KnownColor;
 
 namespace MGUI.Samples.Controls
 {

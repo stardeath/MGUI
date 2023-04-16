@@ -1,17 +1,10 @@
-﻿using Microsoft.Xna.Framework;
-using MGUI.Shared.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MonoGame.Extended;
-using MGUI.Core.UI.Containers;
-using MGUI.Core.UI.Brushes.Border_Brushes;
+﻿using MGUI.Core.UI.Brushes.Border_Brushes;
 using MGUI.Core.UI.Brushes.Fill_Brushes;
+using MGUI.Core.UI.Containers;
+using MGUI.Shared.Helpers;
+using Microsoft.Xna.Framework;
+using MonoGame.Extended;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace MGUI.Core.UI
@@ -155,7 +148,7 @@ namespace MGUI.Core.UI
                 OuterHeaderPresenter.ManagedParent = this;
                 OuterHeaderPresenter.SetParent(this);
 
-                this.Padding = new(8,4,8,8);
+                this.Padding = new(8, 4, 8, 8);
 
                 this.Header = Header;
 
@@ -190,7 +183,7 @@ namespace MGUI.Core.UI
 
             SharedSize = new(HeaderHorizontalMargin * 2 + HeaderHorizontalPadding * 2 + HeaderSize.Width, 0, 0, 0);
 
-            return new(BorderThickness.Left + HeaderHorizontalMargin * 2 + HeaderHorizontalPadding * 2 + HeaderSize.Width, 
+            return new(BorderThickness.Left + HeaderHorizontalMargin * 2 + HeaderHorizontalPadding * 2 + HeaderSize.Width,
                 BorderThickness.Height + HeaderSize.Height, BorderThickness.Right, BorderThickness.Bottom);
         }
 

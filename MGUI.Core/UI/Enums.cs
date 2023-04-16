@@ -1,9 +1,4 @@
 ﻿using Microsoft.Xna.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MGUI.Core.UI
 {
@@ -83,6 +78,10 @@ namespace MGUI.Core.UI
         Misc,
         Custom,
         UserControl,
+
+        // Test
+        TabControl2,
+        TabItem2,
     }
 
     /// <summary>Describes how a child element is vertically positioned or stretched within a parent's layout slot</summary>
@@ -185,8 +184,8 @@ namespace MGUI.Core.UI
     /// <summary>Specifies how a window will automatically size itself to fit the size of its content.</summary>
     public enum SizeToContent
     {
-        /// <summary>Specifies that a window will not automatically set its size to fit the size of its content. 
-		/// Instead, the size of a window is determined by other properties, including WindowWidth, WindowHeight, 
+        /// <summary>Specifies that a window will not automatically set its size to fit the size of its content.
+		/// Instead, the size of a window is determined by other properties, including WindowWidth, WindowHeight,
 		/// MaxWidth, MaxHeight, MinWidth, and MinHeight.</summary>
         Manual = 0,
         /// <summary>Specifies that a window will automatically set its width to fit the width of its content, but not the height.</summary>

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MonoGame.Extended;
+using System;
 using SizeF = System.Drawing.SizeF;
-using MonoGame.Extended;
 
 namespace MGUI.Shared.Helpers
 {
@@ -26,7 +21,7 @@ namespace MGUI.Shared.Helpers
             new(Math.Clamp(@this.Width, Min.Width, Max.Width), Math.Clamp(@this.Height, Min.Height, Max.Height));
 
         public static SizeF Add(this SizeF @this, SizeF other, float MinWidth, float MinHeight)
-            => new(Math.Max(MinWidth, @this.Width + other.Width), Math.Max(MinHeight,@this.Height + other.Height));
+            => new(Math.Max(MinWidth, @this.Width + other.Width), Math.Max(MinHeight, @this.Height + other.Height));
 
         public static SizeF Subtract(this SizeF @this, SizeF other, float MinWidth, float MinHeight)
             => new(Math.Max(MinWidth, @this.Width - other.Width), Math.Max(MinHeight, @this.Height - other.Height));
@@ -36,7 +31,7 @@ namespace MGUI.Shared.Helpers
         public static SizeF AsZeroOrGreater(this SizeF @this) => new(Math.Max(0, @this.Width), Math.Max(0, @this.Height));
 
         /// <summary>Clamps this <see cref="SizeF"/> to fit its Width and Height into the inclusive range specified by <paramref name="Min"/> and <paramref name="Max"/></summary>
-        public static SizeF Clamp(this SizeF @this, SizeF Min, SizeF Max) => 
+        public static SizeF Clamp(this SizeF @this, SizeF Min, SizeF Max) =>
             new(Math.Clamp(@this.Width, Min.Width, Max.Width), Math.Clamp(@this.Height, Min.Height, Max.Height));
     }
 }

@@ -1,18 +1,12 @@
-﻿using MGUI.Core.UI.Containers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
-using MonoGame.Extended;
-using MGUI.Shared.Helpers;
-using System.Collections.ObjectModel;
-using MGUI.Core.UI.Text;
-using MGUI.Core.UI.Brushes.Border_Brushes;
-using System.Collections.Specialized;
-using Microsoft.Xna.Framework.Input;
+﻿using MGUI.Core.UI.Brushes.Border_Brushes;
 using MGUI.Core.UI.Brushes.Fill_Brushes;
+using MGUI.Core.UI.Containers;
+using MGUI.Shared.Helpers;
+using Microsoft.Xna.Framework.Input;
+using MonoGame.Extended;
+using System;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Diagnostics;
 
 namespace MGUI.Core.UI

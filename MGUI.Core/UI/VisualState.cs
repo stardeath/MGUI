@@ -1,13 +1,10 @@
-﻿using Microsoft.Xna.Framework;
-using MGUI.Shared.Helpers;
-using MGUI.Core.UI.Brushes.Border_Brushes;
+﻿using MGUI.Core.UI.Brushes.Border_Brushes;
 using MGUI.Core.UI.Brushes.Fill_Brushes;
+using MGUI.Shared.Helpers;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MGUI.Core.UI
 {
@@ -32,12 +29,12 @@ namespace MGUI.Core.UI
 
     public readonly record struct VisualState(PrimaryVisualState Primary, SecondaryVisualState Secondary)
     {
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]public bool IsDisabled => Primary == PrimaryVisualState.Disabled;
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]public bool IsSelected => Primary == PrimaryVisualState.Selected;
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)] public bool IsDisabled => Primary == PrimaryVisualState.Disabled;
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)] public bool IsSelected => Primary == PrimaryVisualState.Selected;
 
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]public bool IsPressed => Secondary == SecondaryVisualState.Pressed;
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]public bool IsHovered => Secondary == SecondaryVisualState.Hovered;
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]public bool IsPressedOrHovered => IsPressed || IsHovered;
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)] public bool IsPressed => Secondary == SecondaryVisualState.Pressed;
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)] public bool IsHovered => Secondary == SecondaryVisualState.Hovered;
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)] public bool IsPressedOrHovered => IsPressed || IsHovered;
 
         public SecondaryVisualState GetSecondaryState(bool SpoofIsPressed, bool SpoofIsHovered)
         {
@@ -274,7 +271,7 @@ namespace MGUI.Core.UI
                 _ => throw new NotImplementedException($"Unrecognized {nameof(SecondaryVisualState)}: {State}")
             };
 
-        protected VisualStateBrush(TDataType NormalValue, TDataType SelectedValue, TDataType DisabledValue, 
+        protected VisualStateBrush(TDataType NormalValue, TDataType SelectedValue, TDataType DisabledValue,
             Color? HoveredColor, PressedModifierType PressedModifierType, float PressedModifier)
             : base(NormalValue, SelectedValue, DisabledValue)
         {
@@ -300,7 +297,8 @@ namespace MGUI.Core.UI
 
         private VisualStateFillBrush(VisualStateFillBrush InheritFrom)
             : base(InheritFrom.NormalValue?.Copy(), InheritFrom.SelectedValue?.Copy(), InheritFrom.DisabledValue?.Copy(),
-                  InheritFrom.FocusedColor, InheritFrom.PressedModifierType, InheritFrom.PressedModifier) { }
+                  InheritFrom.FocusedColor, InheritFrom.PressedModifierType, InheritFrom.PressedModifier)
+        { }
 
         public VisualStateFillBrush Copy() => new(this);
         public override object Clone() => Copy();
@@ -320,7 +318,8 @@ namespace MGUI.Core.UI
 
         private VisualStateColorBrush(VisualStateColorBrush InheritFrom)
             : base(InheritFrom.NormalValue, InheritFrom.SelectedValue, InheritFrom.DisabledValue,
-                  InheritFrom.FocusedColor, InheritFrom.PressedModifierType, InheritFrom.PressedModifier) { }
+                  InheritFrom.FocusedColor, InheritFrom.PressedModifierType, InheritFrom.PressedModifier)
+        { }
 
         public VisualStateColorBrush Copy() => new(this);
         public override object Clone() => Copy();

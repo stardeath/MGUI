@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using XNAColor = Microsoft.Xna.Framework.Color;
 
 #if UseWPF
@@ -233,7 +231,7 @@ namespace MGUI.Core.UI.XAML
         public VerticalAlignment? VerticalAlignment { get; set; }
 
         public PaddedFillBrush() : this(null, new(0), null, null, null, null, null, null, null) { }
-        public PaddedFillBrush(FillBrush Brush, Thickness Padding, float? Scale, int? MinWidth, int? MinHeight, int? MaxWidth, int? MaxHeight, 
+        public PaddedFillBrush(FillBrush Brush, Thickness Padding, float? Scale, int? MinWidth, int? MinHeight, int? MaxWidth, int? MaxHeight,
             HorizontalAlignment? HorizontalAlignment, VerticalAlignment? VerticalAlignment)
         {
             this.Brush = Brush;

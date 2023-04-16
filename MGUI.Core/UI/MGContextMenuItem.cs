@@ -1,14 +1,11 @@
-﻿using Microsoft.Xna.Framework;
-using MonoGame.Extended;
+﻿using MGUI.Core.UI.Containers;
 using MGUI.Shared.Helpers;
-using MGUI.Core.UI.Brushes.Fill_Brushes;
-using MGUI.Core.UI.Containers;
+using Microsoft.Xna.Framework;
+using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Diagnostics;
+using System.Linq;
 
 namespace MGUI.Core.UI
 {
@@ -388,9 +385,9 @@ namespace MGUI.Core.UI
                 this.ContentWrapper = Menu.ButtonWrapperTemplate(Menu);
             };
 
-            OnSelected += (sender, e) => 
-            { 
-                this.Action?.Invoke(this); 
+            OnSelected += (sender, e) =>
+            {
+                this.Action?.Invoke(this);
             };
 
             this.Action = Action;

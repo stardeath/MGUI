@@ -1,10 +1,9 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.Xna.Framework;
-using MGUI.Shared.Helpers;
-using MonoGame.Extended;
 
 namespace MGUI.Core.UI.Text
 {

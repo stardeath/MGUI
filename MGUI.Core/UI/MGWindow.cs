@@ -1,23 +1,18 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
+﻿using MGUI.Core.UI.Brushes.Border_Brushes;
+using MGUI.Core.UI.Brushes.Fill_Brushes;
+using MGUI.Core.UI.Containers;
+using MGUI.Core.UI.Containers.Grids;
 using MGUI.Shared.Helpers;
-using Prism.Commands;
+using MGUI.Shared.Input.Keyboard;
+using MGUI.Shared.Input.Mouse;
+using MGUI.Shared.Rendering;
+using Microsoft.Xna.Framework;
+using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Diagnostics;
-using MonoGame.Extended;
-using MGUI.Core.UI.Containers;
-using MGUI.Core.UI.Brushes.Fill_Brushes;
-using MGUI.Core.UI.Brushes.Border_Brushes;
-using MGUI.Shared.Input.Mouse;
-using MGUI.Shared.Input.Keyboard;
-using MGUI.Shared.Rendering;
-using Microsoft.Xna.Framework.Graphics;
-using MGUI.Core.UI.Containers.Grids;
+using System.Linq;
 
 namespace MGUI.Core.UI
 {
@@ -389,7 +384,7 @@ namespace MGUI.Core.UI
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private readonly List<MGWindow> _NestedWindows;
-        /// <summary>The last element represents the <see cref="MGWindow"/> that will be 
+        /// <summary>The last element represents the <see cref="MGWindow"/> that will be
         /// drawn last (I.E., rendered overtop of everything else), and updated first (I.E., has the first chance to handle inputs)<br/>
         /// except in cases where a Topmost window is prioritized (See: <see cref="IsTopmost"/>)<para/>
         /// This list does not include <see cref="ModalWindow"/>, which is always prioritized over all <see cref="NestedWindows"/></summary>
@@ -542,7 +537,7 @@ namespace MGUI.Core.UI
             if (!CanCloseWindow)
                 return false;
 
-            if ((ParentWindow != null && (ParentWindow.NestedWindows.Contains(this) || ParentWindow.ModalWindow == this)) 
+            if ((ParentWindow != null && (ParentWindow.NestedWindows.Contains(this) || ParentWindow.ModalWindow == this))
                 || (ParentWindow == null && Desktop.Windows.Contains(this)))
             {
                 if (WindowClosing != null)
@@ -558,7 +553,7 @@ namespace MGUI.Core.UI
                 {
                     ParentWindow.ModalWindow = null;
                     IsClosed = true;
-                }    
+                }
                 if (ParentWindow != null && ParentWindow.NestedWindows.Contains(this))
                     IsClosed = ParentWindow.RemoveNestedWindow(this);
                 else if (ParentWindow == null && Desktop.Windows.Contains(this))
@@ -728,10 +723,10 @@ namespace MGUI.Core.UI
             }
         }
 
-        /// <summary>Invoked after <see cref="PressedElement"/> changes, but is intentionally deferred until the end of the current update tick so that <see cref="MGElement.VisualState"/> 
+        /// <summary>Invoked after <see cref="PressedElement"/> changes, but is intentionally deferred until the end of the current update tick so that <see cref="MGElement.VisualState"/>
         /// values are properly synced with the <see cref="PressedElement"/></summary>
         public event EventHandler<EventArgs<MGElement>> PressedElementChanged;
-        /// <summary>Invoked after <see cref="HoveredElement"/> changes, but is intentionally deferred until the end of the current update tick so that <see cref="MGElement.VisualState"/> 
+        /// <summary>Invoked after <see cref="HoveredElement"/> changes, but is intentionally deferred until the end of the current update tick so that <see cref="MGElement.VisualState"/>
         /// values are properly synced with the <see cref="HoveredElement"/></summary>
         public event EventHandler<EventArgs<MGElement>> HoveredElementChanged;
 
@@ -766,7 +761,7 @@ namespace MGUI.Core.UI
         }
 
         public override object DataContextOverride
-        { 
+        {
             get => WindowDataContext;
             set => WindowDataContext = value;
         }
@@ -863,7 +858,7 @@ namespace MGUI.Core.UI
                     //  Attempt to draw the window's border around just the titlebar, so that the border is also drawn just underneath the title bar
                     if (IsTitleBarVisible)
                     {
-                        Rectangle TargetBounds = new(TitleBarElement.LayoutBounds.Left - BorderThickness.Left, TitleBarElement.LayoutBounds.Top - BorderThickness.Top, 
+                        Rectangle TargetBounds = new(TitleBarElement.LayoutBounds.Left - BorderThickness.Left, TitleBarElement.LayoutBounds.Top - BorderThickness.Top,
                             TitleBarElement.LayoutBounds.Width + BorderThickness.Width, TitleBarElement.LayoutBounds.Height + BorderThickness.Top + BorderThickness.Bottom / 2);
                         BorderElement.BorderBrush.Draw(e.DA, this, TargetBounds, BorderThickness);
                     }
@@ -877,7 +872,7 @@ namespace MGUI.Core.UI
                 CloseButtonElement.BorderBrush = MGUniformBorderBrush.Black;
                 CloseButtonElement.BorderThickness = new(1);
                 CloseButtonElement.Margin = new(1, 1, 1, 1 + BorderElement.BorderThickness.Bottom);
-                CloseButtonElement.Padding = new(4,-1);
+                CloseButtonElement.Padding = new(4, -1);
                 CloseButtonElement.VerticalAlignment = VerticalAlignment.Center;
                 CloseButtonElement.VerticalContentAlignment = VerticalAlignment.Center;
                 CloseButtonElement.HorizontalContentAlignment = HorizontalAlignment.Center;
@@ -886,7 +881,7 @@ namespace MGUI.Core.UI
 
                 this.TitleBarTextBlockElement = new(this, null, Color.White, ActualTheme.FontSettings.SmallFontSize)
                 {
-                    Margin = new(4,0),
+                    Margin = new(4, 0),
                     Padding = new(0),
                     HorizontalAlignment = HorizontalAlignment.Stretch,
                     VerticalAlignment = VerticalAlignment.Center,
@@ -1128,9 +1123,9 @@ namespace MGUI.Core.UI
                 }
             };
         }
-#endregion Drag Window Position
+        #endregion Drag Window Position
 
-#region Indexed Elements
+        #region Indexed Elements
         private Dictionary<string, MGElement> ElementsByName { get; }
 
         public MGElement GetElementByName(string Name) => ElementsByName[Name];
@@ -1242,7 +1237,7 @@ namespace MGUI.Core.UI
                 }
             }
         }
-#endregion Indexed Elements
+        #endregion Indexed Elements
 
         private VisualStateFillBrush PreviousBackgroundBrush = null;
 

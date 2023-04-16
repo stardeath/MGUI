@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MGUI.Core.UI.Text
 {
@@ -100,7 +98,7 @@ namespace MGUI.Core.UI.Text
             this.Definitions = new List<FTActionDefinition>();
 
             //  Bold
-            Definitions.Add(new(FTActionType.EnableBold, FTTokenType.BoldOpenTagType, 
+            Definitions.Add(new(FTActionType.EnableBold, FTTokenType.BoldOpenTagType,
                 FTTokenType.OpenTag, FTTokenType.BoldOpenTagType, FTTokenType.CloseTag));
             Definitions.Add(new(FTActionType.DisableBold, FTTokenType.BoldCloseTagType,
                 FTTokenType.OpenTag, FTTokenType.BoldCloseTagType, FTTokenType.CloseTag));

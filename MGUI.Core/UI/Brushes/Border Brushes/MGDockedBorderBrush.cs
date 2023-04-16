@@ -1,13 +1,11 @@
-﻿using Microsoft.Xna.Framework;
-using MonoGame.Extended;
+﻿using MGUI.Core.UI.Brushes.Fill_Brushes;
 using MGUI.Shared.Helpers;
-using MGUI.Core.UI.Brushes.Fill_Brushes;
+using MGUI.Shared.Rendering;
+using Microsoft.Xna.Framework;
+using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MGUI.Shared.Rendering;
 
 namespace MGUI.Core.UI.Brushes.Border_Brushes
 {
@@ -104,9 +102,9 @@ namespace MGUI.Core.UI.Brushes.Border_Brushes
         }
 
         public IBorderBrush Copy() => new MGDockedBorderBrush(
-            Left?.Copy() ?? MGSolidFillBrush.Transparent, 
-            Top?.Copy() ?? MGSolidFillBrush.Transparent, 
-            Right?.Copy() ?? MGSolidFillBrush.Transparent, 
+            Left?.Copy() ?? MGSolidFillBrush.Transparent,
+            Top?.Copy() ?? MGSolidFillBrush.Transparent,
+            Right?.Copy() ?? MGSolidFillBrush.Transparent,
             Bottom?.Copy() ?? MGSolidFillBrush.Transparent);
 
         public static explicit operator MGDockedBorderBrush(MGUniformBorderBrush uniform) => new(uniform.Brush, uniform.Brush, uniform.Brush, uniform.Brush);

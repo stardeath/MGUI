@@ -1,13 +1,10 @@
 ﻿using MGUI.Core.UI.Brushes.Fill_Brushes;
-using MGUI.Core.UI.XAML;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Globalization;
 
 #if UseWPF
@@ -372,8 +369,8 @@ namespace MGUI.Core.UI.Data_Binding
             try
             {
                 IsSettingValue = true;
-                return TrySetValue(this, SourceObject, SourceProperty, SourcePropertyType, 
-                    TargetObject, TargetProperty, TargetPropertyType, 
+                return TrySetValue(this, SourceObject, SourceProperty, SourcePropertyType,
+                    TargetObject, TargetProperty, TargetPropertyType,
                     ConverterSettings, Config.StringFormat);
             }
             finally { IsSettingValue = false; }
@@ -381,7 +378,7 @@ namespace MGUI.Core.UI.Data_Binding
 
         /// <summary>Attempts to copy the given <paramref name="Value"/> into the <paramref name="TargetObject"/>'s <paramref name="TargetProperty"/>.</summary>
         /// <param name="TargetPropertyType">If null, will be retrieved via <see cref="GetUnderlyingType(PropertyInfo)"/></param>
-        private static bool TrySetValue(ITypeDescriptorContext Context, object Value, object TargetObject, PropertyInfo TargetProperty, Type TargetPropertyType, 
+        private static bool TrySetValue(ITypeDescriptorContext Context, object Value, object TargetObject, PropertyInfo TargetProperty, Type TargetPropertyType,
             ConverterConfig? ConverterSettings, string StringFormat)
         {
             if (TargetObject != null && TargetProperty != null)

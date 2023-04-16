@@ -44,7 +44,7 @@
                         <ToggleButton Content="CheckBox" IsChecked="{MGBinding Path=CheckBoxSamples.IsVisible, Mode=TwoWay}" />
                         <ToggleButton Content="ComboBox" IsChecked="{MGBinding Path=ComboBoxSamples.IsVisible, Mode=TwoWay}" />
                         <ToggleButton Content="ContextMenu" IsChecked="{MGBinding Path=ContextMenuSamples.IsVisible, Mode=TwoWay}" />
-                        <ToggleButton Content="ContextualContentPresenter" IsChecked="{MGBinding Path=ContextualContentPresenterSamples.IsVisible, Mode=TwoWay}" 
+                        <ToggleButton Content="ContextualContentPresenter" IsChecked="{MGBinding Path=ContextualContentPresenterSamples.IsVisible, Mode=TwoWay}"
                                       ToolTip="ContextualContentPresenter" />
                         <ToggleButton Content="DockPanel" IsChecked="{MGBinding Path=DockPanelSamples.IsVisible, Mode=TwoWay}"/>
                         <ToggleButton Content="Expander" IsChecked="{MGBinding Path=ExpanderSamples.IsVisible, Mode=TwoWay}" />
@@ -68,7 +68,7 @@
                     </UniformGrid>
                 </StackPanel>
             </Expander>
-            
+
             <!-- Features -->
             <Expander IsExpanded="True">
                 <Expander.Header>

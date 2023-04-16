@@ -1,20 +1,17 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using MGUI.Shared.Helpers;
+﻿using MGUI.Core.UI.Brushes.Border_Brushes;
 using MGUI.Core.UI.Text;
+using MGUI.Shared.Helpers;
+using MGUI.Shared.Input.Keyboard;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
+using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using ColorTranslator = System.Drawing.ColorTranslator;
 using System.Text.RegularExpressions;
-using Microsoft.Xna.Framework.Input;
-using System.Diagnostics;
-using MonoGame.Extended;
-using MGUI.Core.UI.Brushes.Border_Brushes;
-using MGUI.Shared.Input.Keyboard;
+using ColorTranslator = System.Drawing.ColorTranslator;
 
 namespace MGUI.Core.UI
 {
@@ -65,7 +62,8 @@ namespace MGUI.Core.UI
         /// <summary>To set this value, use <see cref="SetText(string)"/>.<para/>
         /// If this <see cref="MGTextBox"/> is an <see cref="MGPasswordBox"/>, this value will only contain <see cref="MGPasswordBox.PasswordCharacter"/>s (and special characters such as \n).<para/>
         /// See also: <see cref="MGPasswordBox.Password"/></summary>
-        public string Text { 
+        public string Text
+        {
             get => _Text ?? string.Empty;
             //  This setter is mainly intended for use by XAML DataBindings
             set => SetText(value);
@@ -706,7 +704,7 @@ namespace MGUI.Core.UI
 
             public void Push(T Item)
             {
-                if (Stack.Count == Limit) 
+                if (Stack.Count == Limit)
                     Stack.RemoveAt(0);
                 Stack.Add(Item);
             }
@@ -896,7 +894,7 @@ namespace MGUI.Core.UI
 
         private RecentKeyPress? LastKeyPress { get; set; } = null;
 
-        [DebuggerBrowsable (DebuggerBrowsableState.Never)]
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private bool _IsHeldKeyRepeated = true;
         /// <summary>If true, the most-recently pressed key will be repeatedly inputted (~30 times/second). Default value: true<br/>
         /// Some keys might not be repeated, such as special characters, or special keyboard shortcuts like 'Ctrl+C'.<para/>
@@ -996,7 +994,7 @@ namespace MGUI.Core.UI
 
         }
 
-        protected MGTextBox(MGWindow Window, MGElementType ElementType, int? CharacterLimit, bool ShowCharacterCount, bool IsUserResizable) 
+        protected MGTextBox(MGWindow Window, MGElementType ElementType, int? CharacterLimit, bool ShowCharacterCount, bool IsUserResizable)
             : base(Window, ElementType)
         {
             using (BeginInitializing())
@@ -1036,7 +1034,7 @@ namespace MGUI.Core.UI
 
                 this.TextBlockElement = new(Window, "");
                 TextBlockElement.ClipToBounds = false;
-                this.TextBlockComponent = new(TextBlockElement, ComponentUpdatePriority.AfterContents, ComponentDrawPriority.BeforeSelf, 
+                this.TextBlockComponent = new(TextBlockElement, ComponentUpdatePriority.AfterContents, ComponentDrawPriority.BeforeSelf,
                     false, false, true, true, false, false, true,
                     (AvailableBounds, ComponentSize) => AvailableBounds.GetCompressed(Padding));
                 AddComponent(TextBlockComponent);

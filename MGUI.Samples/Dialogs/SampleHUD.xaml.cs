@@ -1,21 +1,16 @@
-﻿using MGUI.Core.UI.Brushes.Fill_Brushes;
-using MGUI.Core.UI;
+﻿using MGUI.Core.UI;
+using MGUI.Core.UI.Containers.Grids;
+using MGUI.Shared.Helpers;
+using MGUI.Shared.Rendering;
+using MGUI.Shared.Text;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MGUI.Shared.Rendering;
-using Microsoft.Xna.Framework;
-using System.Runtime.CompilerServices;
-using MGUI.Shared.Helpers;
-using Microsoft.Xna.Framework.Graphics;
 using System.Collections.ObjectModel;
-using MGUI.Core.UI.Containers.Grids;
-using MonoGame.Extended;
-using MGUI.Shared.Text;
-using MGUI.Core.UI.XAML;
+using System.Linq;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 using Thickness = MonoGame.Extended.Thickness;
 
@@ -299,7 +294,7 @@ namespace MGUI.Samples.Dialogs
                         Vector2 TextSize = DT.MeasureText(FontFamily, FontStyle, Text, FontSize);
                         Vector2 Position = ActualCellBounds.GetCompressed(SlotBorderSize).BottomRight().ToVector2().Translate(-TextSize.X - 1, -TextSize.Y + 1);
 
-                        DT.DrawShadowedText(FontFamily, FontStyle, Text, Position, Color.White, new Color(40,40,40) * e.DrawArgs.Opacity, FontSize);
+                        DT.DrawShadowedText(FontFamily, FontStyle, Text, Position, Color.White, new Color(40, 40, 40) * e.DrawArgs.Opacity, FontSize);
                     }
                 }
 
@@ -352,7 +347,7 @@ namespace MGUI.Samples.Dialogs
                 }
             }
         }
-        
+
         /// <summary>Invoked when <see cref="RemainingDuration"/> changes from > 0 to <= 0.<br/>
         /// This event is not repeatedly invoked if the duration continues to tick down to smaller negative values.</summary>
         public event EventHandler<PlayerBuff> OnExpired;

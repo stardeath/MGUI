@@ -1,19 +1,17 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using MGUI.Shared.Helpers;
+﻿using MGUI.Core.UI.Brushes.Fill_Brushes;
 using MGUI.Core.UI.Text;
+using MGUI.Shared.Helpers;
+using MGUI.Shared.Input.Mouse;
+using MGUI.Shared.Rendering;
+using MGUI.Shared.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MonoGame.Extended;
-using MGUI.Shared.Text;
-using MGUI.Shared.Rendering;
-using MGUI.Core.UI.Brushes.Fill_Brushes;
-using MGUI.Shared.Input.Mouse;
 
 namespace MGUI.Core.UI
 {
@@ -184,7 +182,7 @@ namespace MGUI.Core.UI
         }
 
         private MGTextRunUnderlineConfig DefaultUnderlineSettings => new MGTextRunUnderlineConfig(IsUnderlined);
-        private MGTextRunShadowConfig DefaultShadowSettings => 
+        private MGTextRunShadowConfig DefaultShadowSettings =>
             IsShadowed ? new MGTextRunShadowConfig(ShadowColor ?? GetTheme().FontSettings.DefaultFontShadowColor, ShadowOffset?.ToVector2() ?? GetTheme().FontSettings.DefaultFontShadowOffset.ToVector2()) : default;
 
         private MGTextRunConfig DefaultTextRunSettings => new(IsBold, IsItalic, 1, null, DefaultUnderlineSettings, default, DefaultShadowSettings);
@@ -393,7 +391,7 @@ namespace MGUI.Core.UI
                     MGTextRun CurrentRun = Run;
 
                     //  If a TextRunImage didn't specify destination dimensions, use the default size of the image
-                    if (Run.RunType == TextRunType.Image && Run is MGTextRunImage ImageRun && 
+                    if (Run.RunType == TextRunType.Image && Run is MGTextRunImage ImageRun &&
                         ImageRun.TargetWidth <= 0 && ImageRun.TargetHeight <= 0)
                     {
                         (int? DefaultWidth, int? DefaultHeight) = Desktop.Resources.GetTextureDimensions(ImageRun.SourceName);
@@ -536,7 +534,7 @@ namespace MGUI.Core.UI
                 this.Foreground = new VisualStateSetting<Color?>(Foreground, Foreground, Foreground);
                 this.LinePadding = 2;
                 this.TextAlignment = HorizontalAlignment.Left;
-                this.Padding = new(1,2,1,1);
+                this.Padding = new(1, 2, 1, 1);
                 this.VerticalContentAlignment = VerticalAlignment.Center;
 
                 OnLayoutUpdated += (sender, e) => { UpdateLines(); };
@@ -870,12 +868,12 @@ namespace MGUI.Core.UI
                         float FontScale = this.FontScale;
                         if (UseScaledSpriteFont)
                         {
-                            CustomFontStyles FontStyle = 
-                                IsBold && IsItalic ? CustomFontStyles.Bold | CustomFontStyles.Italic : 
-                                IsBold ? CustomFontStyles.Bold : 
-                                IsItalic ? CustomFontStyles.Italic : 
+                            CustomFontStyles FontStyle =
+                                IsBold && IsItalic ? CustomFontStyles.Bold | CustomFontStyles.Italic :
+                                IsBold ? CustomFontStyles.Bold :
+                                IsItalic ? CustomFontStyles.Italic :
                                 CustomFontStyles.Normal;
-                            SF = Desktop.FontManager.GetFont(FontFamily, FontStyle,(int)(FontSize * FontScale * WindowScale), true, out _, out float ExactScale, out float SuggestedScale, out _);
+                            SF = Desktop.FontManager.GetFont(FontFamily, FontStyle, (int)(FontSize * FontScale * WindowScale), true, out _, out float ExactScale, out float SuggestedScale, out _);
                             FontScale = ExactScale;
                         }
 
@@ -914,7 +912,7 @@ namespace MGUI.Core.UI
                             IFillBrush UnderlineBrush = TextRun.Settings.Underline.Brush ?? Foreground.AsFillBrush();
 
                             RectangleF Destination = new RectangleF(CurrentX, TextYPosition + Line.LineTextHeight - 2 + UnderlineYOffset, TextSize.X, UnderlineHeight);
-                                //.CreateTransformedF(Transform); // IFillBrush.Draw will already account for ElementDrawArgs.Offset
+                            //.CreateTransformedF(Transform); // IFillBrush.Draw will already account for ElementDrawArgs.Offset
                             UnderlineBrush.Draw(DA.SetOpacity(ActualOpacity), this, Destination.RoundUp());
                             //DT.FillRectangle(Vector2.Zero, Destination, Foreground);
                         }

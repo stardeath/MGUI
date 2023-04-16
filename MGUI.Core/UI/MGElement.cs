@@ -1,22 +1,19 @@
-﻿using MGUI.Shared.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using MonoGame.Extended;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
-using System.Diagnostics;
-using Microsoft.Xna.Framework.Graphics;
-using System.Collections.ObjectModel;
-using MGUI.Core.UI.Brushes.Fill_Brushes;
-using MGUI.Shared.Rendering;
-using MGUI.Shared.Input.Mouse;
-using MGUI.Shared.Input.Keyboard;
-using MGUI.Shared.Input;
-using MGUI.Core.UI.Containers;
+﻿using MGUI.Core.UI.Brushes.Fill_Brushes;
 using MGUI.Core.UI.Containers.Grids;
 using MGUI.Core.UI.Data_Binding;
-using System.ComponentModel;
+using MGUI.Shared.Helpers;
+using MGUI.Shared.Input;
+using MGUI.Shared.Input.Keyboard;
+using MGUI.Shared.Input.Mouse;
+using MGUI.Shared.Rendering;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Linq;
 
 namespace MGUI.Core.UI
 {
@@ -68,8 +65,8 @@ namespace MGUI.Core.UI
     }
 
     public readonly record struct ElementMeasurement(Size AvailableSize, Thickness RequestedSize, Thickness SharedSize, Thickness ContentSize)
-	{
-		public bool IsAvailableSizeGreaterThan(Size Other) => AvailableSize.Width > Other.Width && AvailableSize.Height > Other.Height;
+    {
+        public bool IsAvailableSizeGreaterThan(Size Other) => AvailableSize.Width > Other.Width && AvailableSize.Height > Other.Height;
         public bool IsAvailableSizeGreaterThanOrEqual(Size Other) => AvailableSize.Width >= Other.Width && AvailableSize.Height >= Other.Height;
         public bool IsAvailableSizeLessThan(Size Other) => AvailableSize.Width < Other.Width && AvailableSize.Height < Other.Height;
         public bool IsAvailableSizeLessThanOrEqual(Size Other) => AvailableSize.Width <= Other.Width && AvailableSize.Height <= Other.Height;
@@ -173,13 +170,13 @@ namespace MGUI.Core.UI
     {
         public string UniqueId { get; }
 
-		public MGDesktop GetDesktop() => SelfOrParentWindow.Desktop;
+        public MGDesktop GetDesktop() => SelfOrParentWindow.Desktop;
         /// <summary>Prioritizes <see cref="MGWindow.Theme"/>. If null, falls back to <see cref="MGDesktop.Theme"/></summary>
         public MGTheme GetTheme() => SelfOrParentWindow.Theme ?? GetDesktop().Theme;
         public MGResources GetResources() => GetDesktop().Resources;
 
-		/// <summary>The <see cref="MGWindow"/> that this <see cref="MGElement"/> belongs to. This value is only null if this <see cref="MGElement"/> is an <see cref="MGWindow"/> with no parent.</summary>
-		public MGWindow ParentWindow { get; }
+        /// <summary>The <see cref="MGWindow"/> that this <see cref="MGElement"/> belongs to. This value is only null if this <see cref="MGElement"/> is an <see cref="MGWindow"/> with no parent.</summary>
+        public MGWindow ParentWindow { get; }
         /// <summary>Returns a reference to 'this' if this is an instance of <see cref="MGWindow"/>. Else returns <see cref="ParentWindow"/></summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         public MGWindow SelfOrParentWindow => IsWindow ? this as MGWindow : ParentWindow;
@@ -217,9 +214,9 @@ namespace MGUI.Core.UI
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private MGElement _Parent;
-		public MGElement Parent { get => _Parent; }
-		protected internal void SetParent(MGElement Value)
-		{
+        public MGElement Parent { get => _Parent; }
+        protected internal void SetParent(MGElement Value)
+        {
             if (_Parent != Value)
             {
                 MGElement Previous = Parent;
@@ -229,7 +226,7 @@ namespace MGUI.Core.UI
             }
         }
 
-		public event EventHandler<EventArgs<MGElement>> OnParentChanged;
+        public event EventHandler<EventArgs<MGElement>> OnParentChanged;
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private MGElement _ManagedParent;
@@ -275,45 +272,45 @@ namespace MGUI.Core.UI
         public bool IsComponent => ComponentParent != null;
 
         protected List<MGComponentBase> Components { get; } = new();
-		protected virtual void AddComponent(MGComponentBase Component)
-		{
-			Component.BaseElement.SetParent(this);
+        protected virtual void AddComponent(MGComponentBase Component)
+        {
+            Component.BaseElement.SetParent(this);
             Component.BaseElement.ComponentParent = this;
-			Components.Add(Component);
-		}
+            Components.Add(Component);
+        }
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private string _Name;
-		/// <summary>Optional - can be null. If not null, the <see cref="SelfOrParentWindow"/> will index all child elements by their <see cref="Name"/>, so <see cref="Name"/>s must be unique.</summary>
-		public string Name
-		{
-			get => _Name;
-			set
-			{
-				if (_Name != value)
-				{
-					string Previous = Name;
-					_Name = value;
+        /// <summary>Optional - can be null. If not null, the <see cref="SelfOrParentWindow"/> will index all child elements by their <see cref="Name"/>, so <see cref="Name"/>s must be unique.</summary>
+        public string Name
+        {
+            get => _Name;
+            set
+            {
+                if (_Name != value)
+                {
+                    string Previous = Name;
+                    _Name = value;
                     NPC(nameof(Name));
-					OnNameChanged?.Invoke(this, new(Previous, Name));
-				}
-			}
-		}
+                    OnNameChanged?.Invoke(this, new(Previous, Name));
+                }
+            }
+        }
 
-		public event EventHandler<EventArgs<string>> OnNameChanged;
+        public event EventHandler<EventArgs<string>> OnNameChanged;
 
         #region Margin / Padding
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private Thickness _Margin;
-		public Thickness Margin
-		{
-			get => _Margin;
-			set
-			{
-				if (!_Margin.Equals(value))
-				{
+        public Thickness Margin
+        {
+            get => _Margin;
+            set
+            {
+                if (!_Margin.Equals(value))
+                {
                     Thickness Previous = Margin;
-					_Margin = value;
+                    _Margin = value;
                     LayoutChanged(this, true);
                     NPC(nameof(Margin));
                     NPC(nameof(HorizontalMargin));
@@ -328,21 +325,21 @@ namespace MGUI.Core.UI
                     NPC(nameof(ActualPreferredHeight));
                     OnMarginChanged?.Invoke(this, new(Previous, Margin));
                 }
-			}
-		}
+            }
+        }
 
         public event EventHandler<EventArgs<Thickness>> OnMarginChanged;
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private Thickness _Padding;
-		public Thickness Padding
-		{
-			get => _Padding;
-			set
-			{
-				if (!_Padding.Equals(value))
-				{
-					_Padding = value;
+        public Thickness Padding
+        {
+            get => _Padding;
+            set
+            {
+                if (!_Padding.Equals(value))
+                {
+                    _Padding = value;
                     LayoutChanged(this, true);
                     NPC(nameof(Padding));
                     NPC(nameof(HorizontalPadding));
@@ -352,8 +349,8 @@ namespace MGUI.Core.UI
                     NPC(nameof(VerticalMarginAndPadding));
                     NPC(nameof(MarginAndPaddingSize));
                 }
-			}
-		}
+            }
+        }
 
         /// <summary>Total width of <see cref="Margin"/> (<see cref="Thickness.Left"/> + <see cref="Thickness.Right"/>)</summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
@@ -418,75 +415,75 @@ namespace MGUI.Core.UI
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private HorizontalAlignment _HorizontalAlignment;
-		public HorizontalAlignment HorizontalAlignment
-		{
-			get => _HorizontalAlignment;
-			set
-			{
-				if (_HorizontalAlignment != value)
-				{
-					HorizontalAlignment Previous = HorizontalAlignment;
-					_HorizontalAlignment = value;
+        public HorizontalAlignment HorizontalAlignment
+        {
+            get => _HorizontalAlignment;
+            set
+            {
+                if (_HorizontalAlignment != value)
+                {
+                    HorizontalAlignment Previous = HorizontalAlignment;
+                    _HorizontalAlignment = value;
                     NPC(nameof(HorizontalAlignment));
-					OnHorizontalAlignmentChanged?.Invoke(this, new(Previous, HorizontalAlignment));
+                    OnHorizontalAlignmentChanged?.Invoke(this, new(Previous, HorizontalAlignment));
                     LayoutChanged(this, true);
                 }
-			}
-		}
+            }
+        }
 
-		protected event EventHandler<EventArgs<HorizontalAlignment>> OnHorizontalAlignmentChanged;
+        protected event EventHandler<EventArgs<HorizontalAlignment>> OnHorizontalAlignmentChanged;
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private VerticalAlignment _VerticalAlignment;
-		public VerticalAlignment VerticalAlignment
-		{
-			get => _VerticalAlignment;
-			set
-			{
-				if (_VerticalAlignment != value)
-				{
-					VerticalAlignment Previous = VerticalAlignment;
+        public VerticalAlignment VerticalAlignment
+        {
+            get => _VerticalAlignment;
+            set
+            {
+                if (_VerticalAlignment != value)
+                {
+                    VerticalAlignment Previous = VerticalAlignment;
                     _VerticalAlignment = value;
                     NPC(nameof(VerticalAlignment));
                     OnVerticalAlignmentChanged?.Invoke(this, new(Previous, VerticalAlignment));
                     LayoutChanged(this, true);
                 }
-			}
-		}
+            }
+        }
 
         protected event EventHandler<EventArgs<VerticalAlignment>> OnVerticalAlignmentChanged;
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private HorizontalAlignment _HorizontalContentAlignment;
-		public HorizontalAlignment HorizontalContentAlignment
-		{
-			get => _HorizontalContentAlignment;
-			set
-			{
-				if (_HorizontalContentAlignment != value)
-				{
-					_HorizontalContentAlignment = value;
+        public HorizontalAlignment HorizontalContentAlignment
+        {
+            get => _HorizontalContentAlignment;
+            set
+            {
+                if (_HorizontalContentAlignment != value)
+                {
+                    _HorizontalContentAlignment = value;
                     LayoutChanged(this, true);
                     NPC(nameof(HorizontalContentAlignment));
                 }
-			}
-		}
+            }
+        }
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private VerticalAlignment _VerticalContentAlignment;
-		public VerticalAlignment VerticalContentAlignment
-		{
-			get => _VerticalContentAlignment;
-			set
-			{
-				if (_VerticalContentAlignment != value)
-				{
-					_VerticalContentAlignment = value;
+        public VerticalAlignment VerticalContentAlignment
+        {
+            get => _VerticalContentAlignment;
+            set
+            {
+                if (_VerticalContentAlignment != value)
+                {
+                    _VerticalContentAlignment = value;
                     LayoutChanged(this, true);
                     NPC(nameof(VerticalContentAlignment));
                 }
-			}
-		}
+            }
+        }
         #endregion Alignment
 
         #region Size
@@ -495,20 +492,20 @@ namespace MGUI.Core.UI
         private int? _MinWidth;
         /// <summary>The minimum width of this <see cref="MGElement"/>, not including <see cref="HorizontalMargin"/>, or 0 if null.</summary>
 		public int? MinWidth
-		{
-			get => _MinWidth;
-			set
-			{
-				if (_MinWidth != value)
-				{
-					_MinWidth = value;
+        {
+            get => _MinWidth;
+            set
+            {
+                if (_MinWidth != value)
+                {
+                    _MinWidth = value;
                     LayoutChanged(this, true);
                     NPC(nameof(MinWidth));
                     NPC(nameof(MinSize));
                     NPC(nameof(MinSizeIncludingMargin));
                 }
-			}
-		}
+            }
+        }
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private int? _MinHeight;
@@ -551,19 +548,19 @@ namespace MGUI.Core.UI
         private int? _MaxHeight;
         /// <summary>The maximum height of this <see cref="MGElement"/>, not including <see cref="VerticalMargin"/>, or <see cref="int.MaxValue"/> if null.</summary>
 		public int? MaxHeight
-		{
-			get => _MaxHeight;
-			set
-			{
-				if (_MaxHeight != value)
-				{
-					_MaxHeight = value;
+        {
+            get => _MaxHeight;
+            set
+            {
+                if (_MaxHeight != value)
+                {
+                    _MaxHeight = value;
                     LayoutChanged(this, true);
                     NPC(nameof(MaxHeight));
                     NPC(nameof(MaxSizeIncludingMargin));
                 }
-			}
-		}
+            }
+        }
 
         /// <summary>Combination of <see cref="MinWidth"/> and <see cref="MinHeight"/>. Uses 0 if value is not specified.<para/>
         /// This value does not include <see cref="Margin"/>.<para/>
@@ -591,27 +588,27 @@ namespace MGUI.Core.UI
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private int? _PreferredWidth;
-		/// <summary>The requested layout width of this <see cref="MGElement"/>, not including <see cref="HorizontalMargin"/>.<br/>
-		/// For the value that includes <see cref="HorizontalMargin"/>, use <see cref="ActualPreferredWidth"/>.<para/>
-		/// Not the same as the rendered width if the parent <see cref="MGElement"/> did not have enough available space to allocate to this <see cref="MGElement"/> or if there is a non-zero <see cref="HorizontalMargin"/>.<para/>
-		/// See also: <see cref="ActualWidth"/>, <see cref="ActualPreferredWidth"/></summary>
-		public int? PreferredWidth
-		{
-			get => _PreferredWidth;
-			set
-			{
-				if (_PreferredWidth != value)
-				{
-					if (value.HasValue && value.Value < 0)
-						throw new ArgumentOutOfRangeException($"{nameof(MGElement)}.{nameof(PreferredWidth)} cannot be negative.");
+        /// <summary>The requested layout width of this <see cref="MGElement"/>, not including <see cref="HorizontalMargin"/>.<br/>
+        /// For the value that includes <see cref="HorizontalMargin"/>, use <see cref="ActualPreferredWidth"/>.<para/>
+        /// Not the same as the rendered width if the parent <see cref="MGElement"/> did not have enough available space to allocate to this <see cref="MGElement"/> or if there is a non-zero <see cref="HorizontalMargin"/>.<para/>
+        /// See also: <see cref="ActualWidth"/>, <see cref="ActualPreferredWidth"/></summary>
+        public int? PreferredWidth
+        {
+            get => _PreferredWidth;
+            set
+            {
+                if (_PreferredWidth != value)
+                {
+                    if (value.HasValue && value.Value < 0)
+                        throw new ArgumentOutOfRangeException($"{nameof(MGElement)}.{nameof(PreferredWidth)} cannot be negative.");
 
-					_PreferredWidth = value;
+                    _PreferredWidth = value;
                     LayoutChanged(this, true);
                     NPC(nameof(PreferredWidth));
                     NPC(nameof(ActualPreferredWidth));
                 }
-			}
-		}
+            }
+        }
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private int? _PreferredHeight;
@@ -620,12 +617,12 @@ namespace MGUI.Core.UI
         /// Not the same as the rendered height if the parent <see cref="MGElement"/> did not have enough available space to allocate to this <see cref="MGElement"/> or if there is a non-zero <see cref="VerticalMargin"/>.<para/>
         /// See also: <see cref="ActualHeight"/>, <see cref="ActualPreferredHeight"/></summary>
         public int? PreferredHeight
-		{
-			get => _PreferredHeight;
-			set
-			{
-				if (_PreferredHeight != value)
-				{
+        {
+            get => _PreferredHeight;
+            set
+            {
+                if (_PreferredHeight != value)
+                {
                     if (value.HasValue && value.Value < 0)
                         throw new ArgumentOutOfRangeException($"{nameof(MGElement)}.{nameof(PreferredHeight)} cannot be negative.");
 
@@ -634,8 +631,8 @@ namespace MGUI.Core.UI
                     NPC(nameof(PreferredHeight));
                     NPC(nameof(ActualPreferredHeight));
                 }
-			}
-		}
+            }
+        }
 
         /// <summary>Same as <see cref="PreferredWidth"/>, except this includes the <see cref="HorizontalMargin"/></summary>
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
@@ -648,22 +645,22 @@ namespace MGUI.Core.UI
         #region ToolTip
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private MGToolTip _ToolTip;
-		public MGToolTip ToolTip
-		{
-			get => _ToolTip;
-			set
-			{
-				if (_ToolTip != value)
-				{
-					MGToolTip Previous = ToolTip;
-					_ToolTip = value;
+        public MGToolTip ToolTip
+        {
+            get => _ToolTip;
+            set
+            {
+                if (_ToolTip != value)
+                {
+                    MGToolTip Previous = ToolTip;
+                    _ToolTip = value;
                     NPC(nameof(ToolTip));
-					ToolTipChanged?.Invoke(this, new(Previous, ToolTip));
-				}
-			}
-		}
+                    ToolTipChanged?.Invoke(this, new(Previous, ToolTip));
+                }
+            }
+        }
 
-		public event EventHandler<EventArgs<MGToolTip>> ToolTipChanged;
+        public event EventHandler<EventArgs<MGToolTip>> ToolTipChanged;
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         public bool IsToolTipShowing => GetDesktop().ActiveToolTip == ToolTip;
         #endregion ToolTip
@@ -671,15 +668,15 @@ namespace MGUI.Core.UI
         #region ContextMenu
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private MGContextMenu _ContextMenu;
-		public MGContextMenu ContextMenu
-		{
-			get => _ContextMenu;
-			set
-			{
-				if (_ContextMenu != value)
-				{
-					MGContextMenu Previous = ContextMenu;
-					_ContextMenu = value;
+        public MGContextMenu ContextMenu
+        {
+            get => _ContextMenu;
+            set
+            {
+                if (_ContextMenu != value)
+                {
+                    MGContextMenu Previous = ContextMenu;
+                    _ContextMenu = value;
 
                     if (Previous != null && ContextMenu == null)
                         MouseHandler.RMBReleasedInside -= TryOpenContextMenuOnRightClick;
@@ -687,10 +684,10 @@ namespace MGUI.Core.UI
                         MouseHandler.RMBReleasedInside += TryOpenContextMenuOnRightClick;
 
                     NPC(nameof(ContextMenu));
-					ContextMenuChanged?.Invoke(this, new(Previous, ContextMenu));
-				}
-			}
-		}
+                    ContextMenuChanged?.Invoke(this, new(Previous, ContextMenu));
+                }
+            }
+        }
 
         private void TryOpenContextMenuOnRightClick(object sender, BaseMouseReleasedEventArgs e)
         {
@@ -700,8 +697,8 @@ namespace MGUI.Core.UI
             }
         }
 
-		/// <summary>Invoked when <see cref="ContextMenu"/> is set to a new value. (Not invoked when the content within <see cref="ContextMenu"/> is modified)<para/>
-		/// See also: <see cref="MGDesktop.ActiveContextMenu"/>, <see cref="MGDesktop.ContextMenuClosing"/>, <see cref="MGDesktop.ContextMenuClosed"/>, <see cref="MGDesktop.ContextMenuOpening"/>, <see cref="MGDesktop.ContextMenuOpened"/></summary>
+        /// <summary>Invoked when <see cref="ContextMenu"/> is set to a new value. (Not invoked when the content within <see cref="ContextMenu"/> is modified)<para/>
+        /// See also: <see cref="MGDesktop.ActiveContextMenu"/>, <see cref="MGDesktop.ContextMenuClosing"/>, <see cref="MGDesktop.ContextMenuClosed"/>, <see cref="MGDesktop.ContextMenuOpening"/>, <see cref="MGDesktop.ContextMenuOpened"/></summary>
         public event EventHandler<EventArgs<MGContextMenu>> ContextMenuChanged;
         #endregion ContextMenu
 
@@ -731,20 +728,20 @@ namespace MGUI.Core.UI
 
         protected IMouseViewport AsIViewport() => this;
         protected IMouseHandlerHost AsIMouseHandlerHost() => this;
-        bool IMouseViewport.IsInside(Vector2 Position) => 
+        bool IMouseViewport.IsInside(Vector2 Position) =>
             ActualLayoutBounds.ContainsInclusive(ConvertCoordinateSpace(CoordinateSpace.Screen, CoordinateSpace.UnscaledScreen, Position)) &&
             GetDesktop().ValidScreenBounds.ContainsInclusive(Position);
 
         Vector2 IMouseViewport.GetOffset() => Vector2.Zero;
 
-		protected bool _CanReceiveMouseInput { get; private set; }
-		bool IMouseHandlerHost.CanReceiveMouseInput() => _CanReceiveMouseInput;
+        protected bool _CanReceiveMouseInput { get; private set; }
+        bool IMouseHandlerHost.CanReceiveMouseInput() => _CanReceiveMouseInput;
 
         public virtual bool CanHandleKeyboardInput { get => false; }
         protected bool _CanReceiveKeyboardInput { get; private set; }
-		bool IKeyboardHandlerHost.CanReceiveKeyboardInput() => CanHandleKeyboardInput && _CanReceiveKeyboardInput;
+        bool IKeyboardHandlerHost.CanReceiveKeyboardInput() => CanHandleKeyboardInput && _CanReceiveKeyboardInput;
 
-		bool IKeyboardHandlerHost.HasKeyboardFocus() => GetDesktop().FocusedKeyboardHandler == this;
+        bool IKeyboardHandlerHost.HasKeyboardFocus() => GetDesktop().FocusedKeyboardHandler == this;
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private bool _CanHandleInputsWhileHidden;
@@ -976,9 +973,9 @@ namespace MGUI.Core.UI
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private DeferEventsManager InitializationManager { get; }
-		/// <summary>To improve performance, consider invoking this method during constructor initialization.<para/>
-		/// This will defer layout updates until the <see cref="DeferEventsTransaction"/> is disposed.</summary>
-		protected internal DeferEventsTransaction BeginInitializing() => InitializationManager.DeferEvents();
+        /// <summary>To improve performance, consider invoking this method during constructor initialization.<para/>
+        /// This will defer layout updates until the <see cref="DeferEventsTransaction"/> is disposed.</summary>
+        protected internal DeferEventsTransaction BeginInitializing() => InitializationManager.DeferEvents();
 
         #region Delayed Actions
         public enum InvokeLaterPriority
@@ -1072,17 +1069,17 @@ namespace MGUI.Core.UI
         #endregion Delayed Actions
 
         protected MGElement(MGWindow ParentWindow, MGElementType ElementType)
-			: this(ParentWindow.Desktop, ParentWindow, ElementType)
-		{
+            : this(ParentWindow.Desktop, ParentWindow, ElementType)
+        {
 
-		}
+        }
 
         protected MGElement(MGDesktop Desktop, MGWindow ParentWindow, MGElementType ElementType, MGTheme Theme = null)
-		{
-			this.InitializationManager = new(() => { LayoutChanged(this, true); });
-			using (BeginInitializing())
-			{
-				this.UniqueId = Guid.NewGuid().ToString();
+        {
+            this.InitializationManager = new(() => { LayoutChanged(this, true); });
+            using (BeginInitializing())
+            {
+                this.UniqueId = Guid.NewGuid().ToString();
                 this.ParentWindow = ParentWindow;
                 this.ElementType = ElementType;
 
@@ -1098,12 +1095,12 @@ namespace MGUI.Core.UI
                 MGTheme ActualTheme = Theme ?? ParentWindow?.Theme ?? Desktop.Theme;
 
                 this.Margin = new(0);
-				this.Padding = new(0);
+                this.Padding = new(0);
 
-				this.HorizontalAlignment = HorizontalAlignment.Stretch;
-				this.VerticalAlignment = VerticalAlignment.Stretch;
-				this.HorizontalContentAlignment = HorizontalAlignment.Stretch;
-				this.VerticalContentAlignment = VerticalAlignment.Stretch;
+                this.HorizontalAlignment = HorizontalAlignment.Stretch;
+                this.VerticalAlignment = VerticalAlignment.Stretch;
+                this.HorizontalContentAlignment = HorizontalAlignment.Stretch;
+                this.VerticalContentAlignment = VerticalAlignment.Stretch;
 
                 this.BackgroundRenderPadding = new(0);
                 this.BackgroundBrush = ActualTheme.GetBackgroundBrush(ElementType);
@@ -1112,23 +1109,23 @@ namespace MGUI.Core.UI
                 this.Visibility = Visibility.Visible;
                 this.IsEnabled = true;
                 this.IsSelected = false;
-				this.IsHitTestVisible = true;
+                this.IsHitTestVisible = true;
                 this.ClipToBounds = true;
                 this.Opacity = 1.0f;
 
                 SelfOrParentWindow.OnWindowPositionChanged += (sender, e) =>
-				{
-					Point Offset = new(e.NewValue.Left - e.PreviousValue.Left, e.NewValue.Top - e.PreviousValue.Top);
+                {
+                    Point Offset = new(e.NewValue.Left - e.PreviousValue.Left, e.NewValue.Top - e.PreviousValue.Top);
                     TranslateAllBounds(Offset);
-				};
+                };
             }
-		}
+        }
 
-		public override string ToString() => string.IsNullOrEmpty(Name) ?
+        public override string ToString() => string.IsNullOrEmpty(Name) ?
             $"{ElementType}: {GetType().Name} ({RenderBounds})" :
             $"'{Name}' - {ElementType}: {GetType().Name} ({RenderBounds})";
 
-		public virtual IEnumerable<MGElement> GetChildren() => Enumerable.Empty<MGElement>();
+        public virtual IEnumerable<MGElement> GetChildren() => Enumerable.Empty<MGElement>();
 
         public virtual MGBorder GetBorder() => null;
         public bool HasBorder => GetBorder() != null;
@@ -1316,12 +1313,12 @@ namespace MGUI.Core.UI
         [DebuggerStepThrough]
         public class ElementUpdateEventArgs : EventArgs
         {
-			public readonly MGElement Element;
+            public readonly MGElement Element;
             public readonly ElementUpdateArgs UA;
 
             public ElementUpdateEventArgs(MGElement Element, ElementUpdateArgs UA)
             {
-				this.Element = Element;
+                this.Element = Element;
                 this.UA = UA;
             }
         }
@@ -1367,7 +1364,7 @@ namespace MGUI.Core.UI
         }
 
         public void Update(ElementUpdateArgs UA)
-		{
+        {
             bool ComputedIsEnabled = UA.IsEnabled && this.IsEnabled;
             bool ComputedIsSelected = UA.IsSelected || this.IsSelected;
             bool ComputedIsHitTestVisible = UA.IsHitTestVisible && this.IsHitTestVisible;
@@ -1389,19 +1386,20 @@ namespace MGUI.Core.UI
             this.ActualLayoutBounds = Rectangle.Intersect(ParentLayoutBounds, UnscaledScreenBounds);
 #endif
 
-            UA = UA with {
-                IsEnabled = ComputedIsEnabled, 
-                IsSelected = ComputedIsSelected, 
-                IsHitTestVisible = ComputedIsHitTestVisible, 
+            UA = UA with
+            {
+                IsEnabled = ComputedIsEnabled,
+                IsSelected = ComputedIsSelected,
+                IsHitTestVisible = ComputedIsHitTestVisible,
                 ActualLayoutBounds = this.ActualLayoutBounds
             };
             //UA = new(UA.BA, ComputedIsEnabled, ComputedIsSelected, ComputedIsHitTestVisible, UA.Offset, this.ActualLayoutBounds);
 
             PrimaryVisualState PrimaryVisualState = !ComputedIsEnabled ? PrimaryVisualState.Disabled : ComputedIsSelected ? PrimaryVisualState.Selected : PrimaryVisualState.Normal;
-            SecondaryVisualState SecondaryVisualState = 
-                !ComputedIsHitTestVisible || SelfOrParentWindow.HasModalWindow ? SecondaryVisualState.None : 
-                IsLMBPressed && IsSelfOrAncestorOf(SelfOrParentWindow.PressedElement) ? SecondaryVisualState.Pressed : 
-                IsHovered && IsSelfOrAncestorOf(SelfOrParentWindow.HoveredElement) ? SecondaryVisualState.Hovered : 
+            SecondaryVisualState SecondaryVisualState =
+                !ComputedIsHitTestVisible || SelfOrParentWindow.HasModalWindow ? SecondaryVisualState.None :
+                IsLMBPressed && IsSelfOrAncestorOf(SelfOrParentWindow.PressedElement) ? SecondaryVisualState.Pressed :
+                IsHovered && IsSelfOrAncestorOf(SelfOrParentWindow.HoveredElement) ? SecondaryVisualState.Hovered :
                 SecondaryVisualState.None;
             this.VisualState = new(PrimaryVisualState, SecondaryVisualState);
 
@@ -1417,8 +1415,8 @@ namespace MGUI.Core.UI
             else
                 HoverStartTime = null;
 
-			if (!RecentDrawWasClipped && HoverStartTime.HasValue && !SelfOrParentWindow.HasModalWindow)
-			{
+            if (!RecentDrawWasClipped && HoverStartTime.HasValue && !SelfOrParentWindow.HasModalWindow)
+            {
                 if (!TryGetToolTip(out MGToolTip ToolTip))
                     ToolTip = this.ToolTip;
 
@@ -1430,17 +1428,17 @@ namespace MGUI.Core.UI
                         GetDesktop().QueuedToolTip = ToolTip;
                     }
                 }
-			}
+            }
 
             bool BaseCanReceiveInput = (Visibility == Visibility.Visible || (Visibility == Visibility.Hidden && CanHandleInputsWhileHidden)) && ComputedIsEnabled && ComputedIsHitTestVisible
-            	&& (!RecentDrawWasClipped || (Visibility == Visibility.Hidden && CanHandleInputsWhileHidden));
+                && (!RecentDrawWasClipped || (Visibility == Visibility.Hidden && CanHandleInputsWhileHidden));
             this._CanReceiveMouseInput = BaseCanReceiveInput && (Parent?._CanReceiveMouseInput ?? true);
             this._CanReceiveKeyboardInput = BaseCanReceiveInput && (Parent?._CanReceiveKeyboardInput ?? true);
 
             OnBeginUpdateContents?.Invoke(this, UpdateEventArgs);
-			foreach (MGElement Component in Components.Where(x => x.UpdateBeforeContents).Select(x => x.BaseElement))
-				Component.Update(UA);
-			UpdateContents(UA);
+            foreach (MGElement Component in Components.Where(x => x.UpdateBeforeContents).Select(x => x.BaseElement))
+                Component.Update(UA);
+            UpdateContents(UA);
             foreach (MGElement Component in Components.Where(x => x.UpdateAfterContents).Select(x => x.BaseElement))
                 Component.Update(UA);
             OnEndUpdateContents?.Invoke(this, UpdateEventArgs);
@@ -1455,7 +1453,7 @@ namespace MGUI.Core.UI
                 //      to consolidate their input handling into a single MouseHandler instead of separate ones for each list item
                 _MouseHandler?.ManualUpdate();
                 _KeyboardHandler?.ManualUpdate();
-			}
+            }
             UpdateSelf(UA);
 
             OnEndUpdate?.Invoke(this, UpdateEventArgs);
@@ -1467,7 +1465,7 @@ namespace MGUI.Core.UI
             return false;
         }
 
-		protected virtual void UpdateContents(ElementUpdateArgs UA)
+        protected virtual void UpdateContents(ElementUpdateArgs UA)
         {
             foreach (MGElement InactiveChild in GetVisualTreeChildren(true, false).Reverse().ToList())
                 InactiveChild.Update(UA.ChangeHitTestVisible(false));
@@ -1480,8 +1478,8 @@ namespace MGUI.Core.UI
         public event EventHandler<ElementUpdateEventArgs> OnBeginUpdateContents;
         public event EventHandler<ElementUpdateEventArgs> OnEndUpdateContents;
 
-		public virtual void UpdateSelf(ElementUpdateArgs UA) { }
-#endregion Update
+        public virtual void UpdateSelf(ElementUpdateArgs UA) { }
+        #endregion Update
 
         #region Draw
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
@@ -1522,19 +1520,19 @@ namespace MGUI.Core.UI
         }
 
         public virtual void Draw(ElementDrawArgs DA)
-		{
-			RecentDrawWasClipped = false;
+        {
+            RecentDrawWasClipped = false;
 
             DA = DA.SetOpacity(DA.Opacity * this.Opacity) with { VisualState = this.VisualState };
             MGElementDrawEventArgs DrawEventArgs = new(DA);
 
-			OnBeginDraw?.Invoke(this, DrawEventArgs);
+            OnBeginDraw?.Invoke(this, DrawEventArgs);
 
             if (Visibility != Visibility.Visible || LayoutBounds.Width <= 0 || LayoutBounds.Height <= 0)
-			{
-				RecentDrawWasClipped = true;
-				return;
-			}
+            {
+                RecentDrawWasClipped = true;
+                return;
+            }
 
             Rectangle TargetBounds = LayoutBounds.GetTranslated(DA.Offset).CreateTransformedF(DA.DT.CurrentSettings.Transform).RoundUp();
 
@@ -1557,9 +1555,9 @@ namespace MGUI.Core.UI
             }
 
             if (!ClipToBounds || !DA.DT.CurrentSettings.RasterizerState.ScissorTestEnable || TargetBounds.Intersects(DA.DT.GD.ScissorRectangle))
-			{
-				using (ClipToBounds ? DA.DT.SetClipTargetTemporary(TargetBounds, true) : null)
-				{
+            {
+                using (ClipToBounds ? DA.DT.SetClipTargetTemporary(TargetBounds, true) : null)
+                {
                     foreach (MGElement Component in Components.Where(x => x.DrawBeforeBackground).Select(x => x.BaseElement))
                         Component.Draw(DA);
 
@@ -1570,8 +1568,8 @@ namespace MGUI.Core.UI
 
                     DrawSelf(DA, LayoutBounds);
 
-					foreach (MGElement Component in Components.Where(x => x.DrawBeforeContents).Select(x => x.BaseElement))
-						Component.Draw(DA);
+                    foreach (MGElement Component in Components.Where(x => x.DrawBeforeContents).Select(x => x.BaseElement))
+                        Component.Draw(DA);
 
                     DrawContents(DA);
 
@@ -1582,30 +1580,30 @@ namespace MGUI.Core.UI
                 }
             }
             else
-			{
-				RecentDrawWasClipped = true;
-			}
+            {
+                RecentDrawWasClipped = true;
+            }
 
             TempTransform?.Dispose();
             TempScissorRect?.Dispose();
 
             OnEndDraw?.Invoke(this, DrawEventArgs);
-		}
+        }
 
-		protected virtual void DrawContents(ElementDrawArgs DA) { }
+        protected virtual void DrawContents(ElementDrawArgs DA) { }
 
         [DebuggerStepThrough]
         public class MGElementDrawEventArgs : EventArgs
-		{
-			public readonly ElementDrawArgs DA;
+        {
+            public readonly ElementDrawArgs DA;
 
             public MGElementDrawEventArgs(ElementDrawArgs DA)
-			{
+            {
                 this.DA = DA;
-			}
-		}
+            }
+        }
 
-		public event EventHandler<MGElementDrawEventArgs> OnBeginDraw;
+        public event EventHandler<MGElementDrawEventArgs> OnBeginDraw;
         /// <summary>Invoked after drawing the background, self, and all components, 
         /// but while the <see cref="GraphicsDevice.ScissorRectangle"/> is still set to the desired screen-space bounds of this element.<para/>
         /// See also: <see cref="OnEndDraw"/></summary>
@@ -1618,7 +1616,7 @@ namespace MGUI.Core.UI
         protected void DrawBackground(ElementDrawArgs DA) => DrawBackground(DA, this.LayoutBounds);
 
         public virtual void DrawBackground(ElementDrawArgs DA, Rectangle LayoutBounds)
-		{
+        {
             Rectangle BorderlessBounds = !HasBorder ? LayoutBounds : LayoutBounds.GetCompressed(GetBorder().BorderThickness);
             Rectangle BackgroundBounds = BorderlessBounds.GetCompressed(BackgroundRenderPadding);
             BackgroundBrush.GetUnderlay(DA.VisualState.Primary)?.Draw(DA, this, BackgroundBounds);
@@ -1626,7 +1624,7 @@ namespace MGUI.Core.UI
             BackgroundBrush.GetFillOverlay(SecondaryState)?.Draw(DA, this, BackgroundBounds);
         }
 
-        public virtual void DrawSelf(ElementDrawArgs DA, Rectangle LayoutBounds) 
+        public virtual void DrawSelf(ElementDrawArgs DA, Rectangle LayoutBounds)
             => DrawSelfBaseImplementation(DA, LayoutBounds);
 
         protected void DrawSelfBaseImplementation(ElementDrawArgs DA, Rectangle LayoutBounds)
@@ -1637,8 +1635,8 @@ namespace MGUI.Core.UI
         #endregion Draw
 
         #region Layout
-		internal protected void InvalidateLayout()
-		{
+        internal protected void InvalidateLayout()
+        {
             IsLayoutValid = false;
             RecentMeasurementsSelfOnly.Clear();
             RecentMeasurementsFull.Clear();
@@ -1647,8 +1645,8 @@ namespace MGUI.Core.UI
         /// <summary>Invoked when a property that affects this <see cref="MGElement"/>'s layout has changed, such as <see cref="Padding"/>, <see cref="Margin"/>, or its content.</summary>
         protected virtual void LayoutChanged(MGElement Source, bool NotifyParent)
         {
-			if (InitializationManager.IsDeferringEvents)
-				return;
+            if (InitializationManager.IsDeferringEvents)
+                return;
 
             if (IsUpdatingLayout)
                 SelfOrParentWindow.QueueLayoutRefresh = true;
@@ -1825,8 +1823,8 @@ namespace MGUI.Core.UI
             finally { IsUpdatingLayout = false; }
         }
 
-		public event EventHandler<EventArgs> OnLayoutUpdated;
-		public event EventHandler<EventArgs<Rectangle>> OnLayoutBoundsChanged;
+        public event EventHandler<EventArgs> OnLayoutUpdated;
+        public event EventHandler<EventArgs<Rectangle>> OnLayoutBoundsChanged;
 
         protected virtual void UpdateContentLayout(Rectangle Bounds) { }
         #endregion Arrange
@@ -1834,9 +1832,9 @@ namespace MGUI.Core.UI
         #region Measure
         protected const int MeasurementCacheSize = 15;
 
-		/// <summary>Full measurements - I.E. includes the requested size of this <see cref="MGElement"/> and its content, if any.<para/>
-		/// See also: <see cref="RecentMeasurementsSelfOnly"/></summary>
-		private List<ElementMeasurement> RecentMeasurementsFull { get; } = new();
+        /// <summary>Full measurements - I.E. includes the requested size of this <see cref="MGElement"/> and its content, if any.<para/>
+        /// See also: <see cref="RecentMeasurementsSelfOnly"/></summary>
+        private List<ElementMeasurement> RecentMeasurementsFull { get; } = new();
         private void CacheFullMeasurement(ElementMeasurement Value)
         {
             while (RecentMeasurementsFull.Count > MeasurementCacheSize)
@@ -1845,10 +1843,10 @@ namespace MGUI.Core.UI
                 RecentMeasurementsFull.Insert(0, Value);
         }
 
-		/// <summary>Recent measurements that only account for the requested size of this <see cref="MGElement"/>; does not include the requested size of its content, if any.<br/>
-		/// For example, a Border would only account for the total width of it's Margin, Padding, and BorderThickness.<para/>
-		/// See also: <see cref="RecentMeasurementsFull"/></summary>
-		private List<ElementMeasurement> RecentMeasurementsSelfOnly { get; } = new();
+        /// <summary>Recent measurements that only account for the requested size of this <see cref="MGElement"/>; does not include the requested size of its content, if any.<br/>
+        /// For example, a Border would only account for the total width of it's Margin, Padding, and BorderThickness.<para/>
+        /// See also: <see cref="RecentMeasurementsFull"/></summary>
+        private List<ElementMeasurement> RecentMeasurementsSelfOnly { get; } = new();
         private void CacheSelfMeasurement(ElementMeasurement Value)
         {
             while (RecentMeasurementsSelfOnly.Count > MeasurementCacheSize)
@@ -1861,41 +1859,41 @@ namespace MGUI.Core.UI
         /// For example, for a Border, this would include Margin, Padding, and BorderThickness.</param>
         /// <param name="FullMeasurement">A measurement that accounts for both this <see cref="MGElement"/> self-measurement and the measurement of its content, if any.</param>
         protected bool TryGetCachedMeasurement(Size AvailableSize, out ElementMeasurement SelfMeasurement, out ElementMeasurement FullMeasurement)
-		{
-			if (IsLayoutValid)
-			{
-				foreach (ElementMeasurement Self in RecentMeasurementsSelfOnly)
-				{
-					if (Self.AvailableSize == AvailableSize || 
-						(Self.IsAvailableSizeGreaterThanOrEqual(AvailableSize) && Self.IsRequestedSizeLessThanOrEqual(AvailableSize))) 
-							// If we decreased the available size, but it's still at least as much as what requested, we can re-use the cached measurement.
-							// We can't re-use the measurement if we increased the available size, because wrappable content may end up consuming more width and less height
-					{
+        {
+            if (IsLayoutValid)
+            {
+                foreach (ElementMeasurement Self in RecentMeasurementsSelfOnly)
+                {
+                    if (Self.AvailableSize == AvailableSize ||
+                        (Self.IsAvailableSizeGreaterThanOrEqual(AvailableSize) && Self.IsRequestedSizeLessThanOrEqual(AvailableSize)))
+                    // If we decreased the available size, but it's still at least as much as what requested, we can re-use the cached measurement.
+                    // We can't re-use the measurement if we increased the available size, because wrappable content may end up consuming more width and less height
+                    {
                         SelfMeasurement = Self;
 
-						foreach (ElementMeasurement Full in RecentMeasurementsFull)
-						{
+                        foreach (ElementMeasurement Full in RecentMeasurementsFull)
+                        {
                             if (Full.AvailableSize == AvailableSize || (Full.IsAvailableSizeGreaterThanOrEqual(AvailableSize) && Full.IsRequestedSizeLessThanOrEqual(AvailableSize)))
-							{
-								FullMeasurement = Full;
-								return true;
-							}
-						}
+                            {
+                                FullMeasurement = Full;
+                                return true;
+                            }
+                        }
 
-						break;
-					}
-				}
-			}
+                        break;
+                    }
+                }
+            }
 
             SelfMeasurement = default;
-			FullMeasurement = default;
-			return false;
-		}
+            FullMeasurement = default;
+            return false;
+        }
 
         protected virtual bool CanCacheSelfMeasurement { get => true; }
 
-		private bool TryGetRecentSelfMeasurement(Size AvailableSize, out Thickness SelfSize, out Thickness SharedSize, out Thickness ContentSize)
-		{
+        private bool TryGetRecentSelfMeasurement(Size AvailableSize, out Thickness SelfSize, out Thickness SharedSize, out Thickness ContentSize)
+        {
             if (CanCacheSelfMeasurement)
             {
                 foreach (ElementMeasurement Measurement in RecentMeasurementsSelfOnly)
@@ -1910,11 +1908,11 @@ namespace MGUI.Core.UI
                 }
             }
 
-			SelfSize = default;
-			SharedSize = default;
+            SelfSize = default;
+            SharedSize = default;
             ContentSize = default;
-			return false;
-		}
+            return false;
+        }
 
         /// <summary>If true, this element is capable of consuming non-zero width when the height is zero, or a non-zero height when the width is zero.<br/>
         /// Default value is false, which means that if the element is assigned 0 width or height, then BOTH the width and height are automatically truncated to zero.<para/>
@@ -1923,48 +1921,48 @@ namespace MGUI.Core.UI
 
         internal protected void UpdateMeasurement(Size AvailableSize, out Thickness SelfSize, out Thickness FullSize, out Thickness SharedSize, out Thickness ContentSize)
         {
-			if (IsVisibilityCollapsed)
-			{
-				SelfSize = new(0);
+            if (IsVisibilityCollapsed)
+            {
+                SelfSize = new(0);
                 FullSize = new(0);
                 SharedSize = new(0);
                 ContentSize = new(0);
-				return;
-			}
+                return;
+            }
 
-			AvailableSize = AvailableSize.AsZeroOrGreater();
+            AvailableSize = AvailableSize.AsZeroOrGreater();
 
             //  Truncate the available size based on this element's MaxSize and preferred width/height
-			Size RemainingSize = new(
-                Math.Clamp(AvailableSize.Width, 0, Math.Min(ActualPreferredWidth ?? int.MaxValue, MaxSizeIncludingMargin.Width)), 
+            Size RemainingSize = new(
+                Math.Clamp(AvailableSize.Width, 0, Math.Min(ActualPreferredWidth ?? int.MaxValue, MaxSizeIncludingMargin.Width)),
                 Math.Clamp(AvailableSize.Height, 0, Math.Min(ActualPreferredHeight ?? int.MaxValue, MaxSizeIncludingMargin.Height))
             );
 
             if (!TryGetRecentSelfMeasurement(RemainingSize, out SelfSize, out SharedSize, out ContentSize))
-			{
-				SelfSize = MeasureSelf(RemainingSize, out SharedSize);
+            {
+                SelfSize = MeasureSelf(RemainingSize, out SharedSize);
                 ElementMeasurement SelfMeasurement = new(AvailableSize, SelfSize, SharedSize, ContentSize);
                 CacheSelfMeasurement(SelfMeasurement);
             }
 
-			Thickness UnsharedSelfSize = SelfSize.Subtract(SharedSize);
-			RemainingSize = RemainingSize.Subtract(UnsharedSelfSize.Size, 0, 0);
+            Thickness UnsharedSelfSize = SelfSize.Subtract(SharedSize);
+            RemainingSize = RemainingSize.Subtract(UnsharedSelfSize.Size, 0, 0);
 
-			ContentSize = UpdateContentMeasurement(RemainingSize);
-			FullSize = new Thickness(UnsharedSelfSize.Left + Math.Max(SharedSize.Left, ContentSize.Left),
-				UnsharedSelfSize.Top + Math.Max(SharedSize.Top, ContentSize.Top),
-				UnsharedSelfSize.Right + Math.Max(SharedSize.Right, ContentSize.Right),
-				UnsharedSelfSize.Bottom + Math.Max(SharedSize.Bottom, ContentSize.Bottom));
+            ContentSize = UpdateContentMeasurement(RemainingSize);
+            FullSize = new Thickness(UnsharedSelfSize.Left + Math.Max(SharedSize.Left, ContentSize.Left),
+                UnsharedSelfSize.Top + Math.Max(SharedSize.Top, ContentSize.Top),
+                UnsharedSelfSize.Right + Math.Max(SharedSize.Right, ContentSize.Right),
+                UnsharedSelfSize.Bottom + Math.Max(SharedSize.Bottom, ContentSize.Bottom));
 
-			//  Adjust width/height based on preferred values
-			if (ActualPreferredWidth.HasValue || ActualPreferredHeight.HasValue)
-			{
-				Size PreferredSize = new(ActualPreferredWidth ?? FullSize.Width, ActualPreferredHeight ?? FullSize.Height);
-				FullSize = FullSize.Clamp(PreferredSize, PreferredSize);
-			}
+            //  Adjust width/height based on preferred values
+            if (ActualPreferredWidth.HasValue || ActualPreferredHeight.HasValue)
+            {
+                Size PreferredSize = new(ActualPreferredWidth ?? FullSize.Width, ActualPreferredHeight ?? FullSize.Height);
+                FullSize = FullSize.Clamp(PreferredSize, PreferredSize);
+            }
 
-			//  Adjust width/height based on min/max sizes
-			FullSize = FullSize.Clamp(MinSizeIncludingMargin, MaxSizeIncludingMargin).Clamp(Size.Empty, AvailableSize);
+            //  Adjust width/height based on min/max sizes
+            FullSize = FullSize.Clamp(MinSizeIncludingMargin, MaxSizeIncludingMargin).Clamp(Size.Empty, AvailableSize);
 
             if ((FullSize.Width <= 0 || FullSize.Height <= 0) && !CanConsumeSpaceInSingleDimension)
                 FullSize = new(0);
@@ -1981,64 +1979,64 @@ namespace MGUI.Core.UI
         /// For example, a checkbox contains a checkable rectangular portion that is in-line with the content.<br/>
         /// So if that checkable rectangle has height=16, and content has height=20, the total height is '16 + Math.Max(0, 20-16)' rather than 16+20=36.</param>
         protected Thickness MeasureSelf(Size AvailableSize, out Thickness SharedSize)
-		{
-			if (Visibility == Visibility.Collapsed)
-			{
-				SharedSize = new(0);
-				return new(0);
-			}
+        {
+            if (Visibility == Visibility.Collapsed)
+            {
+                SharedSize = new(0);
+                return new(0);
+            }
 
-			Thickness Total = new(0);
+            Thickness Total = new(0);
             Size RemainingSize = AvailableSize;
 
-			Thickness MarginAndPadding = Margin.Add(Padding);
-			Total = Total.Add(MarginAndPadding);
+            Thickness MarginAndPadding = Margin.Add(Padding);
+            Total = Total.Add(MarginAndPadding);
             RemainingSize = RemainingSize.Subtract(MarginSize, 0, 0);
 
             Thickness Overridden = MeasureSelfOverride(RemainingSize, out SharedSize);
-			Total = Total.Add(Overridden);
-			RemainingSize = RemainingSize.Subtract(Overridden.Size, 0, 0);
+            Total = Total.Add(Overridden);
+            RemainingSize = RemainingSize.Subtract(Overridden.Size, 0, 0);
 
-			foreach (MGComponentBase Component in Components)
-			{
-				Size RemainingSizeForComponent = Component.UsesOwnersPadding ? RemainingSize.Subtract(PaddingSize, 0, 0) : RemainingSize;
+            foreach (MGComponentBase Component in Components)
+            {
+                Size RemainingSizeForComponent = Component.UsesOwnersPadding ? RemainingSize.Subtract(PaddingSize, 0, 0) : RemainingSize;
 
-				MGElement Element = Component.BaseElement;
+                MGElement Element = Component.BaseElement;
                 Element.UpdateMeasurement(RemainingSizeForComponent, out _, out Thickness ComponentSize, out _, out _);
 
-				Thickness ActualComponentSize = Component.ConsumesAnySpace ? Component.Arrange(ComponentSize) : new(0);
-				Thickness ComponentSharedSize = new(
-					Component.IsWidthSharedWithContent ? ActualComponentSize.Left : 0,
-					Component.IsHeightSharedWithContent ? ActualComponentSize.Top : 0,
-					Component.IsWidthSharedWithContent ? ActualComponentSize.Right : 0,
-					Component.IsHeightSharedWithContent ? ActualComponentSize.Bottom : 0);
-				SharedSize = SharedSize.Add(ComponentSharedSize);
+                Thickness ActualComponentSize = Component.ConsumesAnySpace ? Component.Arrange(ComponentSize) : new(0);
+                Thickness ComponentSharedSize = new(
+                    Component.IsWidthSharedWithContent ? ActualComponentSize.Left : 0,
+                    Component.IsHeightSharedWithContent ? ActualComponentSize.Top : 0,
+                    Component.IsWidthSharedWithContent ? ActualComponentSize.Right : 0,
+                    Component.IsHeightSharedWithContent ? ActualComponentSize.Bottom : 0);
+                SharedSize = SharedSize.Add(ComponentSharedSize);
 
                 Total = Total.Add(ActualComponentSize);
                 RemainingSize = RemainingSize.Subtract(ActualComponentSize.Size, 0, 0);
-			}
+            }
 
             if (Total.Width <= 0 && Total.Height <= 0)
-				Total = new(0);
+                Total = new(0);
 
-			return Total;
-		}
+            return Total;
+        }
 
-		/// <summary>This method should not include <see cref="Margin"/> nor <see cref="Padding"/>.</summary>
-		/// <param name="SharedSize">Typically 0. This represents how much of the self measurement can be shared with the measurement of the content.<para/>
-		/// For example, a checkbox contains a checkable rectangular portion that is in-line with the content.<br/>
-		/// So if that checkable rectangle has height=16, and content has height=20, the total height is '16 + Math.Max(0, 20-16)' rather than 16+20=36.</param>
-		public virtual Thickness MeasureSelfOverride(Size AvailableSize, out Thickness SharedSize)
-		{
-			SharedSize = new(0);
-			return new(0);
-		}
+        /// <summary>This method should not include <see cref="Margin"/> nor <see cref="Padding"/>.</summary>
+        /// <param name="SharedSize">Typically 0. This represents how much of the self measurement can be shared with the measurement of the content.<para/>
+        /// For example, a checkbox contains a checkable rectangular portion that is in-line with the content.<br/>
+        /// So if that checkable rectangle has height=16, and content has height=20, the total height is '16 + Math.Max(0, 20-16)' rather than 16+20=36.</param>
+        public virtual Thickness MeasureSelfOverride(Size AvailableSize, out Thickness SharedSize)
+        {
+            SharedSize = new(0);
+            return new(0);
+        }
 
         //  Note: This is split into 2 methods because MGContentHost declares an abstract override on UpdateContentMeasurement,
         //  but some derived classes may still want to call the base implementation
         //  More info: https://stackoverflow.com/questions/42271087/how-to-call-a-base-method-that-is-declared-as-abstract-override
         protected virtual Thickness UpdateContentMeasurement(Size AvailableSize) => UpdateContentMeasurementBaseImplementation(AvailableSize);
-		protected Thickness UpdateContentMeasurementBaseImplementation(Size AvailableSize) => new(0);
+        protected Thickness UpdateContentMeasurementBaseImplementation(Size AvailableSize) => new(0);
         #endregion Measure
         #endregion Layout
 
@@ -2115,14 +2113,14 @@ namespace MGUI.Core.UI
                 if (this is T TypedItem)
                     yield return TypedItem;
 
-				if (IncludeComponents)
-				{
-					foreach (MGComponentBase Component in this.Components)
-					{
-						foreach (T Item in Component.BaseElement.TraverseVisualTree<T>(true, IncludeComponents, IncludeToolTips, IncludeContextMenus, TraversalMode))
-							yield return Item;
-					}
-				}
+                if (IncludeComponents)
+                {
+                    foreach (MGComponentBase Component in this.Components)
+                    {
+                        foreach (T Item in Component.BaseElement.TraverseVisualTree<T>(true, IncludeComponents, IncludeToolTips, IncludeContextMenus, TraversalMode))
+                            yield return Item;
+                    }
+                }
 
                 if (IncludeToolTips && ToolTip != null)
                 {
@@ -2138,13 +2136,13 @@ namespace MGUI.Core.UI
             }
 
             foreach (MGElement Child in GetVisualTreeChildren(true, true))
-			{
-				foreach (T Item in Child.TraverseVisualTree<T>(true, IncludeComponents, IncludeToolTips, IncludeContextMenus, TraversalMode))
-					yield return Item;
-			}
+            {
+                foreach (T Item in Child.TraverseVisualTree<T>(true, IncludeComponents, IncludeToolTips, IncludeContextMenus, TraversalMode))
+                    yield return Item;
+            }
 
-			if (TraversalMode == TreeTraversalMode.Postorder && IncludeSelf)
-			{
+            if (TraversalMode == TreeTraversalMode.Postorder && IncludeSelf)
+            {
                 if (IncludeComponents)
                 {
                     foreach (MGComponentBase Component in this.Components)
@@ -2187,8 +2185,8 @@ namespace MGUI.Core.UI
         /// <returns>The first match, or null if no valid match was found.</returns>
         public T FindElement<T>(Predicate<T> Predicate, bool IncludeSelf = true, bool IncludeComponents = true,
             bool IncludeToolTips = true, bool IncludeContextMenus = true, TreeTraversalMode TraversalMode = TreeTraversalMode.Preorder)
-			where T : MGElement
-			=> TraverseVisualTree<T>(IncludeSelf, IncludeComponents, IncludeToolTips, IncludeContextMenus, TraversalMode).FirstOrDefault(x => Predicate(x));
+            where T : MGElement
+            => TraverseVisualTree<T>(IncludeSelf, IncludeComponents, IncludeToolTips, IncludeContextMenus, TraversalMode).FirstOrDefault(x => Predicate(x));
 
         /// <summary>Returns all elements in the visual tree that satisfy the given <paramref name="Predicate"/></summary>
         /// <param name="IncludeSelf">If true, may return a reference to this element, or to one of this element's components (if <paramref name="IncludeComponents"/> is also true).</param>
@@ -2207,5 +2205,5 @@ namespace MGUI.Core.UI
             where T : MGElement
             => TraverseVisualTree<T>(IncludeSelf, IncludeComponents, IncludeToolTips, IncludeContextMenus, TraversalMode).Where(x => Predicate(x));
         #endregion Visual Tree
-	}
+    }
 }

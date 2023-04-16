@@ -4,8 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MGUI.Shared.Helpers
 {
@@ -169,7 +167,7 @@ namespace MGUI.Shared.Helpers
         public static RectangleF GetScaledFromCenter(this RectangleF @this, float ScaleFactor)
         {
             Point2 Center = @this.Center;
-            return new(Center.X - (Center.X - @this.X) * ScaleFactor, Center.Y - (Center.Y - @this.Y) * ScaleFactor, 
+            return new(Center.X - (Center.X - @this.X) * ScaleFactor, Center.Y - (Center.Y - @this.Y) * ScaleFactor,
                 @this.Width * ScaleFactor, @this.Height * ScaleFactor);
         }
 

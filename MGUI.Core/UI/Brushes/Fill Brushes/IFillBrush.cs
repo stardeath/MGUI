@@ -1,16 +1,13 @@
-﻿using Microsoft.Xna.Framework;
-using MGUI.Core.UI.Brushes.Border_Brushes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MGUI.Core.UI.Brushes.Border_Brushes;
 using MGUI.Shared.Helpers;
+using Microsoft.Xna.Framework;
+using System;
 using System.ComponentModel;
 using System.Globalization;
+using System.Linq;
 using System.Text.RegularExpressions;
-using DrawingColor = System.Drawing.Color;
 using ColorTranslator = System.Drawing.ColorTranslator;
+using DrawingColor = System.Drawing.Color;
 
 namespace MGUI.Core.UI.Brushes.Fill_Brushes
 {

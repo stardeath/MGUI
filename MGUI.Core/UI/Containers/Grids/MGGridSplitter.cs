@@ -1,16 +1,14 @@
 ﻿using MGUI.Core.UI.Brushes.Border_Brushes;
 using MGUI.Core.UI.Brushes.Fill_Brushes;
 using MGUI.Shared.Helpers;
+using MGUI.Shared.Input.Mouse;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MGUI.Shared.Input.Mouse;
 using System.Diagnostics;
+using System.Linq;
 
 namespace MGUI.Core.UI.Containers.Grids
 {
@@ -154,7 +152,7 @@ namespace MGUI.Core.UI.Containers.Grids
             /// <summary>Key = Original row. Value = Actual row</summary>
             public IReadOnlyDictionary<RowDefinition, RowDefinition> OriginalToActualRow => _OriginalToActualRow;
 
-            public bool IsValid => GridSplitter != null && GridSplitterCell.Column != null && GridSplitterCell.Row != null && 
+            public bool IsValid => GridSplitter != null && GridSplitterCell.Column != null && GridSplitterCell.Row != null &&
                 OwnerGrid != null && OwnerGrid.IsLayoutValid && (ActualColumns?.Count ?? 0) > 0 && (ActualRows?.Count ?? 0) > 0;
 
             internal GridDragData(GridDragData InheritFrom)

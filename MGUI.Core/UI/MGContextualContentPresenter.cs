@@ -1,12 +1,8 @@
 ﻿using MGUI.Core.UI.Containers;
 using MGUI.Shared.Helpers;
-using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MGUI.Core.UI
 {
@@ -106,7 +102,7 @@ namespace MGUI.Core.UI
         /// <summary>Invoked after the <see cref="CurrentContent"/> has been set to a new value.</summary>
         public event EventHandler<EventArgs<MGElement>> OnContentUpdated;
 
-        protected override void SetContentVirtual(MGElement Value) => 
+        protected override void SetContentVirtual(MGElement Value) =>
             throw new InvalidOperationException($"{nameof(MGContextualContentPresenter)}.{nameof(Content)} is automatically managed via " +
                 $"{nameof(TrueContent)}, {nameof(FalseContent)}, and {nameof(Value)} properties and should not be explicitly set.");
 

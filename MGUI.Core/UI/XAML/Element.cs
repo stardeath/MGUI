@@ -1,6 +1,5 @@
 ﻿using MGUI.Core.UI.Data_Binding;
 using MGUI.Core.UI.Data_Binding.Converters;
-using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,8 +7,6 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using XNAColor = Microsoft.Xna.Framework.Color;
 
 namespace MGUI.Core.UI.XAML
@@ -26,10 +23,10 @@ namespace MGUI.Core.UI.XAML
         [Category("Layout")]
         public Thickness? Padding { get; set; }
 
-        [Category("Layout")]public HorizontalAlignment? HorizontalAlignment { get; set; }
-        [Category("Layout")]public VerticalAlignment? VerticalAlignment { get; set; }
-        [Category("Layout")]public HorizontalAlignment? HorizontalContentAlignment { get; set; }
-        [Category("Layout")]public VerticalAlignment? VerticalContentAlignment { get; set; }
+        [Category("Layout")] public HorizontalAlignment? HorizontalAlignment { get; set; }
+        [Category("Layout")] public VerticalAlignment? VerticalAlignment { get; set; }
+        [Category("Layout")] public HorizontalAlignment? HorizontalContentAlignment { get; set; }
+        [Category("Layout")] public VerticalAlignment? VerticalContentAlignment { get; set; }
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         [Browsable(false)]
@@ -173,7 +170,7 @@ namespace MGUI.Core.UI.XAML
         protected internal List<BindingConfig> Bindings { get; } = new();
 
         /// <param name="ApplyBaseSettings">If not null, this action will be invoked before <see cref="ApplySettings(MGElement, MGElement, bool)"/> executes.</param>
-        public T ToElement<T>(MGWindow Window, MGElement Parent, Action<T> ApplyBaseSettings = null) 
+        public T ToElement<T>(MGWindow Window, MGElement Parent, Action<T> ApplyBaseSettings = null)
             where T : MGElement
         {
             T Element = CreateElementInstance(Window, Parent) as T;
@@ -414,7 +411,7 @@ namespace MGUI.Core.UI.XAML
                         PropertyInfo PropertyInfo = ThisType.GetProperty(PropertyName, BindingFlags.Public | BindingFlags.Instance); // | BindingFlags.IgnoreCase?
                         if (PropertyInfo != null)
                         {
-                            if (ModifiedPropertyNames.Contains(PropertyName) 
+                            if (ModifiedPropertyNames.Contains(PropertyName)
                                 || PropertyInfo.GetValue(this) == default) // Don't allow a style to override a value that was already explicitly set (needs more robust logic since some controls initialize properties to non-null values)
                             {
                                 TypeConverter Converter = TypeDescriptor.GetConverter(PropertyInfo.PropertyType);
@@ -446,7 +443,7 @@ namespace MGUI.Core.UI.XAML
                         PropertyInfo PropertyInfo = ThisType.GetProperty(PropertyName, BindingFlags.Public | BindingFlags.Instance); // | BindingFlags.IgnoreCase?
                         if (PropertyInfo != null)
                         {
-                            if (ModifiedPropertyNames.Contains(PropertyName) 
+                            if (ModifiedPropertyNames.Contains(PropertyName)
                                 || PropertyInfo.GetValue(this) == default) // Don't allow a style to override a value that was already explicitly set
                             {
                                 PropertiesByName.Add(PropertyName, PropertyInfo);

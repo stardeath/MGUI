@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Xna.Framework;
 using MonoGame.Extended;
-using MGUI.Shared.Helpers;
-using Microsoft.Xna.Framework;
+using System;
 using System.Diagnostics;
 
 namespace MGUI.Core.UI
@@ -159,20 +154,20 @@ namespace MGUI.Core.UI
 
         /// <param name="UsesOwnersPadding">If true, then the available bounds will be reduced by the owner's padding before measuring this component.</param>
         /// <param name="Arrange">Parameters: A rectangle of the available bounds, and the size of the component. Output: The actual bounds the component should occupy.</param>
-        public MGComponent(TElementType Element, bool IsWidthSharedWithContent, bool IsHeightSharedWithContent, 
+        public MGComponent(TElementType Element, bool IsWidthSharedWithContent, bool IsHeightSharedWithContent,
             bool ConsumesLeftSpace, bool ConsumesTopSpace, bool ConsumesRightSpace, bool ConsumesBottomSpace, bool UsesOwnersPadding,
             Func<Rectangle, Thickness, Rectangle> Arrange)
             : this(Element, ComponentUpdatePriority.AfterContents, ComponentDrawPriority.BeforeContents,
                   IsWidthSharedWithContent, IsHeightSharedWithContent, ConsumesLeftSpace, ConsumesTopSpace, ConsumesRightSpace, ConsumesBottomSpace, UsesOwnersPadding, Arrange)
         {
-        
+
         }
 
         /// <param name="UpdatePriority">Recommended value: <see cref="ComponentUpdatePriority.AfterContents"/></param>
         /// <param name="DrawPriority">Recommended value: <see cref="ComponentDrawPriority.BeforeContents"/></param>
         /// <param name="UsesOwnersPadding">If true, then the available bounds will be reduced by the owner's padding before measuring this component.</param>
         /// <param name="Arrange">Parameters: A rectangle of the available bounds, and the size of the component. Output: The actual bounds the component should occupy.</param>
-        public MGComponent(TElementType Element, ComponentUpdatePriority UpdatePriority, ComponentDrawPriority DrawPriority, 
+        public MGComponent(TElementType Element, ComponentUpdatePriority UpdatePriority, ComponentDrawPriority DrawPriority,
             bool IsWidthSharedWithContent, bool IsHeightSharedWithContent, bool ConsumesLeftSpace, bool ConsumesTopSpace, bool ConsumesRightSpace, bool ConsumesBottomSpace, bool UsesOwnersPadding,
             Func<Rectangle, Thickness, Rectangle> Arrange)
             : base(Element, UpdatePriority, DrawPriority, IsWidthSharedWithContent, IsHeightSharedWithContent, ConsumesLeftSpace, ConsumesTopSpace, ConsumesRightSpace, ConsumesBottomSpace, UsesOwnersPadding, Arrange)

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Security;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MGUI.Shared.Helpers
 {
@@ -80,7 +77,7 @@ namespace MGUI.Shared.Helpers
         // convert a plain text string into a secure string
         public static SecureString AsSecureString(this string plainStr)
         {
-            var secStr = new SecureString(); 
+            var secStr = new SecureString();
             secStr.Clear();
             foreach (char c in plainStr.ToCharArray())
             {

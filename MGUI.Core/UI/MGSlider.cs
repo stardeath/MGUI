@@ -1,17 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using MGUI.Core.UI.Brushes.Border_Brushes;
+using MGUI.Core.UI.Brushes.Fill_Brushes;
 using MGUI.Shared.Helpers;
+using Microsoft.Xna.Framework;
+using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MonoGame.Extended;
-using MGUI.Core.UI.Brushes.Fill_Brushes;
-using MGUI.Core.UI.Brushes.Border_Brushes;
 using System.Diagnostics;
+using System.Linq;
 
 namespace MGUI.Core.UI
 {
@@ -22,7 +17,8 @@ namespace MGUI.Core.UI
         private float _Minimum;
         /// <summary>The inclusive minimum that <see cref="Value"/> can be set to.<para/>
         /// To set this value, use <see cref="SetRange(float, float)"/></summary>
-        public float Minimum {
+        public float Minimum
+        {
             get => _Minimum;
             //  This setter is mainly intended for use by XAML DataBindings
             set => SetRange(value, Maximum, false);
@@ -32,7 +28,8 @@ namespace MGUI.Core.UI
         private float _Maximum;
         /// <summary>The inclusive maximum that <see cref="Value"/> can be set to.<para/>
         /// To set this value, use <see cref="SetRange(float, float)"/></summary>
-        public float Maximum {
+        public float Maximum
+        {
             get => _Maximum;
             //  This setter is mainly intended for use by XAML DataBindings
             set => SetRange(Minimum, value, false);

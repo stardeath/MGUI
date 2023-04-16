@@ -56,6 +56,34 @@
                 </TabItem>
             </TabControl>
             
+            <TabControl2
+                Name="TabControl2" TabStripPlacement="Left">
+                <TabItem2 Header="Tab #4">
+                    <TextBlock Text="This is the content of [b]Tab #4[/b]" />
+                </TabItem2>
+                <TabItem2 Header="Tab #5">
+                    <TextBlock Text="This is the content of [b]Tab #5[/b]" />
+                </TabItem2>
+                <TabItem2>
+                    <TabItem2.Header>
+                        <DockPanel>
+                            <!-- Note: When a tab is selected, it's header content is automatically set to IsSelected=true -->
+                            <!-- This may affect things like the Background, which has separate values for each VisualState (Normal, Selected, Disabled etc) -->
+                            <!-- Notice that we set the Background AND the SelectedBackground -->
+                            <Button Dock="Right" MinWidth="12" MinHeight="12" BorderThickness="1" BorderBrush="Black" Margin="6,1,1,1" Padding="2,-1"
+                                    Background="Crimson * 0.5" SelectedBackground="Crimson * 0.8" CommandName="CloseTab3">
+                                <TextBlock Foreground="White" IsShadowed="True" ShadowColor="Black" IsBold="True" Text="x" FontSize="8" />
+                            </Button>
+                            <TextBlock Text="Tab #6 with close btn" />
+                        </DockPanel>
+                    </TabItem2.Header>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Spacing="5">
+                        <TextBlock Text="This is the content of [b]Tab #6[/b]" />
+                        <TextBlock Text="You can close this tab by clicking the X in the tab header, or clicking the close button below" />
+                        <Button Content="Close this tab" HorizontalAlignment="Center" CommandName="CloseTab3" />
+                    </StackPanel>
+                </TabItem2>
+            </TabControl2>
             <DockPanel>
                 <TextBlock Dock="Top">
                     Tab headers are Buttons that are placed inside of the [c=Turquoise][i]TabControl.HeadersPanelElement[/i][/c] (Which is a [i]StackPanel[/i]).

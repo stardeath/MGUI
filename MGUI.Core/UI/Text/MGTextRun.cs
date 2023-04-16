@@ -1,18 +1,13 @@
-﻿using Microsoft.Xna.Framework;
+﻿using MGUI.Core.UI.Brushes.Fill_Brushes;
 using MGUI.Shared.Helpers;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using ColorTranslator = System.Drawing.ColorTranslator;
-using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using MGUI.Core.UI.Brushes.Fill_Brushes;
-using Microsoft.Xna.Framework.Graphics;
-using MGUI.Shared.Rendering;
-using MonoGame.Extended;
-using MGUI.Core.UI.XAML;
+using ColorTranslator = System.Drawing.ColorTranslator;
 using Thickness = MonoGame.Extended.Thickness;
 
 namespace MGUI.Core.UI.Text

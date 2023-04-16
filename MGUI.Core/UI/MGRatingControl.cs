@@ -1,14 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using MGUI.Shared.Helpers;
+using MGUI.Shared.Rendering;
+using Microsoft.Xna.Framework;
 using MonoGame.Extended;
-using MGUI.Shared.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MGUI.Shared.Rendering;
 
 namespace MGUI.Core.UI
 {
@@ -29,7 +27,7 @@ namespace MGUI.Core.UI
         private static readonly Rectangle Rect256 = new(0, 0, 256, 256);
         private static readonly Dictionary<RatingItemShape, ReadOnlyCollection<Vector2>> ShapeVertices256 = new()
         {
-            { 
+            {
                 RatingItemShape.Star,
                 Get5PointStarVertices(Rect256).Reverse<Vector2>().ToList().AsReadOnly()
             },
@@ -43,12 +41,12 @@ namespace MGUI.Core.UI
                     new(Rect256.Left + Rect256.Width / 6, Rect256.Center.Y)
                 }.AsReadOnly()
             },
-            { 
+            {
                 RatingItemShape.Circle,
                 DrawTransaction.GetCircleVertices(Rect256.Center.ToVector2(), Math.Min(Rect256.Width / 2, Rect256.Height / 2), 32).ToList().AsReadOnly()
             },
-            { 
-                RatingItemShape.Rectangle, 
+            {
+                RatingItemShape.Rectangle,
                 Rect256.GetCorners().Select(x => x.ToVector2()).ToList().AsReadOnly()
             },
             {
@@ -398,7 +396,7 @@ namespace MGUI.Core.UI
         //TODO
         //Orientation? FlowDirection?
 
-        public MGRatingControl(MGWindow ParentWindow, int MinimumValue = 0, int MaximumValue = 5, int Size = 16, 
+        public MGRatingControl(MGWindow ParentWindow, int MinimumValue = 0, int MaximumValue = 5, int Size = 16,
             bool UseDiscreteValues = true, float? DiscreteValueInterval = 1, RatingItemShape Shape = RatingItemShape.Star)
             : base(ParentWindow, MGElementType.RatingControl)
         {

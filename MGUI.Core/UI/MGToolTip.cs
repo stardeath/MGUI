@@ -1,15 +1,9 @@
-﻿using Microsoft.Xna.Framework;
-using MGUI.Shared.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-using System.ComponentModel;
-using System.Linq;
-using MonoGame.Extended;
-using MGUI.Core.UI.Brushes.Fill_Brushes;
-using System.Diagnostics;
+﻿using MGUI.Core.UI.Brushes.Fill_Brushes;
 using MGUI.Core.UI.Data_Binding.Converters;
+using Microsoft.Xna.Framework;
+using System;
+using System.ComponentModel;
+using System.Diagnostics;
 
 namespace MGUI.Core.UI
 {
@@ -87,7 +81,7 @@ namespace MGUI.Core.UI
                 this.ShowOnDisabled = false;
                 this.ShowDelayOverride = null;
                 this.DefaultTextForeground = ActualTheme.ToolTipTextForeground.GetCopy();
-                this.Padding = new(6,3);
+                this.Padding = new(6, 3);
                 this.MinWidth = 10;
                 this.MinHeight = 10;
                 this.IsUserResizable = false;
