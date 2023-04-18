@@ -1,0 +1,87 @@
+﻿<Window
+    xmlns="clr-namespace:MGUI.Core.UI.XAML;assembly=MGUI.Core"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Left="20"
+    Top="20"
+    SizeToContent="WidthAndHeight"
+    TitleText="[Image=Computer 16x16] Compendium"
+    Padding="10"
+    IsUserResizable="False"
+    Name="Window1">
+
+    <StackPanel
+        Orientation="Vertical">
+
+        <TabControl
+            Name="TabControl1"
+            BorderBrush="Red">
+
+            <TabControl.HeadersPanel>
+                <StackPanel HorizontalAlignment="Center" />
+            </TabControl.HeadersPanel>
+
+            <TabItem Header="Tab #1" Name="TabItem1">
+                <TextBlock Name="TextBlock1" Text="This is the content of [b]Tab #1[/b]" />
+            </TabItem>
+            <TabItem Header="Tab #2 very very very longest tab name ever" Name="TabItem2">
+                <TextBlock Name="TextBlock2" Text="This is the content of [b]Tab #2[/b]" />
+            </TabItem>
+            <TabItem Header="Tab #3" Name="TabItem3">
+                <TextBlock Name="TextBlock3" Text="This is the content of [b]Tab #3[/b]" />
+            </TabItem>
+        </TabControl>
+
+        <TabControl2
+            Name="TabControl2"
+            BorderBrush="Yellow"
+            TabStripPlacement="Left">
+
+            <TabControl2.HeadersPanel>
+                <StackPanel VerticalAlignment="Center" />
+            </TabControl2.HeadersPanel>
+
+            <TabItem2 Header="Tab #4" Name="TabItem4">
+                <TextBlock Name="TextBlock4" Text="This is the content of [b]Tab #4[/b]" />
+            </TabItem2>
+            <TabItem2 Header="Tab #5 longer" Name="TabItem5">
+                <TextBlock Name="TextBlock5" Text="This is the content of [b]Tab #5[/b]" />
+            </TabItem2>
+            <TabItem2 Header="Tab #6" Name="TabItem6">
+                <TextBlock Name="TextBlock6" Text="This is the content of [b]Tab #6[/b]" />
+            </TabItem2>
+        </TabControl2>
+
+        <ListBox
+            IsTitleVisible="True"
+            xmlns:System="clr-namespace:System;assembly=mscorlib"
+            ItemType="{x:Type System:String}"
+            SelectionMode="Single"
+            >
+
+            <ListBox.ItemsPanel>
+                <StackPanel Orientation="Horizontal" />
+            </ListBox.ItemsPanel>
+            <ListBox.AlternatingRowBackgrounds>
+                <SolidFillBrush Color="Black * 0.1" />
+                <SolidFillBrush Color="Black * 0.3" />
+            </ListBox.AlternatingRowBackgrounds>
+            <ListBox.Header>
+                <HeaderedContentPresenter Spacing="5" HeaderPosition="Left">
+                    <HeaderedContentPresenter.Header>
+                        <Rectangle Width="16" Height="16" Fill="RoyalBlue" HA="Center" />
+                    </HeaderedContentPresenter.Header>
+                    <TextBlock Text="Hello World" />
+                </HeaderedContentPresenter>
+            </ListBox.Header>
+            <System:String>Hello!</System:String>
+            <System:String>Baz</System:String>
+            <System:String>Foo</System:String>
+            <System:Double>115.0</System:Double>
+            <System:String>Bar</System:String>
+            <System:String>Long string that may require textwrapping</System:String>
+            <System:String>hello world</System:String>
+            <System:String>string\n with linebreaks</System:String>
+            <System:String>Bar2</System:String>
+        </ListBox>
+    </StackPanel>
+</Window>
