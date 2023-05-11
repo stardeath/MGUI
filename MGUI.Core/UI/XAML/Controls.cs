@@ -1362,12 +1362,13 @@ namespace MGUI.Core.UI.XAML
 
             MGTabControl TabControl = Element as MGTabControl;
             Border.ApplySettings(Parent, TabControl.BorderComponent.Element, false);
-            HeadersPanel.ApplySettings(TabControl, TabControl.HeadersPanelElement, false);
 
             if (HeaderAreaBackground != null)
                 TabControl.HeaderAreaBackground.NormalValue = HeaderAreaBackground.ToFillBrush(Desktop);
             if (TabHeaderPosition.HasValue)
                 TabControl.TabHeaderPosition = TabHeaderPosition.Value;
+
+            HeadersPanel.ApplySettings(TabControl, TabControl.HeadersPanelElement, false);
 
             if (SelectedTabHeaderTemplate != null)
             {
