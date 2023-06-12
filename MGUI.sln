@@ -19,11 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MGUI.Shared", "MGUI.Shared\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "References", "References", "{8B909AC8-60C3-4F1A-8CC5-8743DDC00C29}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonoGame.Framework.DesktopGL", "..\MonoGame\MonoGame.Framework\MonoGame.Framework.DesktopGL.csproj", "{38596F07-24BD-416E-8511-E990D126F26F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonoGame.Framework.DesktopGL", "..\stardeath_MonoGame\MonoGame.Framework\MonoGame.Framework.DesktopGL.csproj", "{38596F07-24BD-416E-8511-E990D126F26F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonoGame.Extended", "..\stardeath_MonoGame.Extended\src\cs\MonoGame.Extended\MonoGame.Extended.csproj", "{922B8790-E394-4E43-84AC-33B0EBE10213}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonoGame.Extended.Content.Pipeline", "..\stardeath_MonoGame.Extended\src\cs\MonoGame.Extended.Content.Pipeline\MonoGame.Extended.Content.Pipeline.csproj", "{A0E90E52-6001-4874-9858-2483CCA55710}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MGUI.Samples2", "MGUI.Samples2\MGUI.Samples2.csproj", "{AEB04CDC-5786-4D7B-850D-EF6BEB8C2224}"
 EndProject
@@ -53,10 +51,6 @@ Global
 		{922B8790-E394-4E43-84AC-33B0EBE10213}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{922B8790-E394-4E43-84AC-33B0EBE10213}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{922B8790-E394-4E43-84AC-33B0EBE10213}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A0E90E52-6001-4874-9858-2483CCA55710}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A0E90E52-6001-4874-9858-2483CCA55710}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A0E90E52-6001-4874-9858-2483CCA55710}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A0E90E52-6001-4874-9858-2483CCA55710}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AEB04CDC-5786-4D7B-850D-EF6BEB8C2224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AEB04CDC-5786-4D7B-850D-EF6BEB8C2224}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEB04CDC-5786-4D7B-850D-EF6BEB8C2224}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -68,7 +62,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{38596F07-24BD-416E-8511-E990D126F26F} = {8B909AC8-60C3-4F1A-8CC5-8743DDC00C29}
 		{922B8790-E394-4E43-84AC-33B0EBE10213} = {8B909AC8-60C3-4F1A-8CC5-8743DDC00C29}
-		{A0E90E52-6001-4874-9858-2483CCA55710} = {8B909AC8-60C3-4F1A-8CC5-8743DDC00C29}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B2F11DF6-8235-4F0F-A61B-A9126514D9CD}

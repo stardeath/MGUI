@@ -23,8 +23,7 @@
 		<PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.1-develop" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\..\MonoGame\MonoGame.Framework\MonoGame.Framework.DesktopGL.csproj" />
-		<ProjectReference Include="..\..\stardeath_MonoGame.Extended\src\cs\MonoGame.Extended.Content.Pipeline\MonoGame.Extended.Content.Pipeline.csproj" />
+		<ProjectReference Include="..\..\stardeath_MonoGame\MonoGame.Framework\MonoGame.Framework.DesktopGL.csproj" />
 		<ProjectReference Include="..\..\stardeath_MonoGame.Extended\src\cs\MonoGame.Extended\MonoGame.Extended.csproj" />
 		<ProjectReference Include="..\MGUI.Shared\MGUI.Shared.csproj" />
 	</ItemGroup>
